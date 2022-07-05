@@ -1,6 +1,8 @@
+@import "../../../../../src/styles/variables.scss";
+
 .styles_header {
   font-family: Arial, sans-serif;
-  background: #f7f8fa;
+  background: $header-bg-color;
   color: #1a1a1a;
 
   .styles_headerLine {
@@ -33,6 +35,7 @@
         align-items: center;
         height: 40px;
 
+        //Локация
         .styles_localityBtn {
           display: flex;
           align-items: center;
@@ -49,6 +52,10 @@
           color: #1a1a1a;
           transition: color 0.2s ease;
 
+          &:hover {
+            color: $header-list-item-color-hover;
+          }
+
           svg {
             flex-shrink: 0;
             margin: 0 7px 0 3px;
@@ -59,6 +66,218 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+          }
+        }
+
+        //Оплата-инфо
+        .styles_navMenu {
+          display: flex;
+          margin-bottom: 2px;
+          font-family: $base-font-family;
+          font-size: 14px;
+          line-height: 20px;
+
+          .styles_navMenuItem {
+            position: relative;
+            display: block;
+            margin-right: 12px;
+
+            .styles_navMenuLink {
+              display: block;
+              white-space: nowrap;
+              text-decoration: none;
+              color: $base-header-text-color;
+              transition: 0.2s ease;
+
+              &:hover {
+                color: $header-list-item-color-hover;
+              }
+            }
+          }
+
+          .navMenuItem {
+            position: relative;
+            display: block;
+            margin-right: 12px;
+
+            .styles_headerTitle {
+              position: relative;
+              padding-right: 17px;
+              border: 0;
+              font-family: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              background: none;
+              cursor: pointer;
+              display: block;
+              white-space: nowrap;
+              text-decoration: none;
+              color: $base-header-text-color;
+              transition: 0.2s ease;
+
+              &::before {
+                content: " ";
+                position: absolute;
+                top: 9px;
+                right: 0;
+                border: 4px solid transparent;
+                border-top: 5px solid $base-header-text-color;
+                transition: border-top-color 0.2s ease;
+              }
+
+              &:hover {
+                color: $header-list-item-color-hover;
+                &::before {
+                  border-top: 5px solid $header-list-item-color-hover;
+                }
+              }
+            }
+          }
+        }
+
+        //Контакты
+        .styles_communications {
+          display: flex;
+          align-items: center;
+          position: relative;
+          padding: 0 16px 0 12px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            height: 16px;
+            margin-top: -8px;
+            border-left: 1px solid $communication-menu-separator-border-color;
+          }
+
+          .styles_communicationItem {
+            position: relative;
+            margin-left: 12px;
+
+            &:first-child {
+              margin: 0;
+            }
+
+            .styles_communicationItemBox {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              text-decoration: none;
+              border: 0;
+              font-family: inherit;
+              font-size: inherit;
+              white-space: nowrap;
+              background: none;
+              color: $header-list-item-color;
+              box-sizing: border-box;
+              cursor: pointer;
+              line-height: 20px;
+
+              &.styles_communicationIconViber {
+                .styles_communicationIcon {
+                  margin-right: 2px;
+                  color: $icon-viber-fill-color;
+                }
+                span {
+                  color: $communication-icon-text-color;
+                }
+
+                &:hover {
+                  .styles_communicationIcon {
+                    color: $header-list-item-color-hover;
+                  }
+                  span {
+                    color: $header-list-item-color-hover;
+                  }
+                }
+              }
+
+              .styles_communicationIcon {
+                width: 24px;
+                height: 24px;
+                margin-right: 4px;
+              }
+
+              &.styles_textCursor {
+                cursor: default;
+
+                span {
+                  cursor: text;
+                }
+              }
+
+              .styles_communicationIconA1 {
+                margin-right: 2px;
+                color: $icon-a1-fill-color;
+              }
+            }
+
+            .styles_headerTitle {
+              position: relative;
+              padding-right: 17px;
+              border: 0;
+              font-family: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              background: none;
+              cursor: pointer;
+              display: block;
+              white-space: nowrap;
+              text-decoration: none;
+              color: $base-header-text-color;
+              transition: 0.2s ease;
+
+              &::before {
+                content: " ";
+                position: absolute;
+                top: 9px;
+                right: 0;
+                border: 4px solid transparent;
+                border-top: 5px solid $base-header-text-color;
+                transition: border-top-color 0.2s ease;
+              }
+
+              &:hover {
+                color: $header-list-item-color-hover;
+                &::before {
+                  border-top: 5px solid $header-list-item-color-hover;
+                }
+              }
+            }
+          }
+        }
+
+        //контакт-центр
+        .styles_workingTime {
+          position: relative;
+          display: flex;
+          align-items: center;
+          height: 28px;
+          padding-left: 13px;
+          color: $working-time-color;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 0;
+            display: block;
+            height: 16px;
+            border-left: 1px solid $communication-menu-separator-border-color;
+          }
+
+          .styles_workingTimeIcon {
+            height: 24px;
+          }
+
+          .styles_workingTimeText {
+            min-width: 74px;
+            margin-left: 2px;
+            font-size: 10px;
+            line-height: 14px;
           }
         }
       }

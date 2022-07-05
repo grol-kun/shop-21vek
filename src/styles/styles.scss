@@ -9,6 +9,8 @@
 /******************************************************************************/
 /*RESETS*/
 /*****************************************************************************/
+@import "variables";
+
 @font-face {
   font-family: "Futura"; /*a name to be used later*/
   src: url("/assets/fonts/FuturaPT-Book.woff2") format("woff2"), url("/assets/fonts/FuturaPT-Book.woff") format("woff"),
@@ -3008,7 +3010,7 @@ html.display-short .l-content {
   height: 24px;
   right: -4px;
   top: 0;
-  background: url(../../../img/caret-default.png) no-repeat 0 0px;
+  //background: url(../../../img/caret-default.png) no-repeat 0 0px;
 }
 
 .g-form__custom-select .g-form__custom-value {
