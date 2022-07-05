@@ -1,0 +1,101 @@
+@import "../../../../styles/variables.scss";
+
+.styles_headerLine {
+  margin-bottom: 32px;
+  background: $header-promo-line-bg;
+  overflow: hidden;
+  font-family: $base-font-family, Helvetica, sans-serif;
+  z-index: 11;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+
+  .styles_headerWrapper {
+    position: relative;
+    padding: 0 32px;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    min-width: 941px;
+    max-width: 1090px;
+    margin: 0 auto;
+    //padding: 0 2.2%;
+    font-family: $base-font-family;
+    font-size: 14px;
+    line-height: 20px;
+    //background: $header-react-bg-color;
+    //color: #1a1a1a;
+    left: calc(50vw - 50%);
+    left: calc(14px), (calc(100vw - 100%) / 2);
+
+    .styles_promoList {
+      display: flex;
+      width: 100%;
+
+      .styles_fixed {
+        padding-right: 14px;
+        margin-right: 2px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          display: block;
+          width: 1px;
+          height: 14px;
+          margin-top: -7px;
+          background: $header-promo-item-separator;
+          opacity: 0.3;
+        }
+
+        .styles_promoItem {
+          a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 4px 12px;
+            text-decoration: none;
+            text-align: center;
+            color: $header-promo-item-text-color;
+            transition: 0.2s ease;
+            white-space: nowrap;
+
+            svg {
+              display: block;
+              margin: 0 6px 0 2px;
+            }
+
+            &:hover {
+              background: $header-promo-item-hover;
+            }
+          }
+        }
+      }
+
+      .styles_promoItems {
+        flex: 1 1;
+        display: flex;
+        justify-content: space-around;
+
+        .styles_promoItem {
+          a {
+            display: block;
+            padding: 10px 8px 12px;
+            text-decoration: none;
+            text-align: center;
+            color: $header-promo-item-text-color;
+            transition: 0.2s ease;
+            white-space: nowrap;
+
+            &:hover {
+              background: $header-promo-item-hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

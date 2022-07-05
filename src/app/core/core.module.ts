@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InfoBlockComponent } from './header/info-block/info-block.component';
 import { NavigationComponent } from './header/navigation/navigation.component';
+import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavigationComponent } from './header/navigation/navigation.component';
     HeaderComponent,
     FooterComponent,
     InfoBlockComponent,
-    NavigationComponent
+    NavigationComponent,
+    NavBarComponent
   ],
   imports: [
     CommonModule,
