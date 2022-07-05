@@ -6,13 +6,15 @@ import { CoreComponent } from './core.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InfoBlockComponent } from './header/info-block/info-block.component';
+import { NavigationComponent } from './header/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     CoreComponent,
     HeaderComponent,
     FooterComponent,
-    InfoBlockComponent
+    InfoBlockComponent,
+    NavigationComponent
   ],
   imports: [
     CommonModule,

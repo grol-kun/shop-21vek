@@ -1,0 +1,293 @@
+@import "../../../../styles/variables.scss";
+
+.styles_headerLine {
+  font-family: $base-font-family, Helvetica, sans-serif;
+  z-index: 11;
+  width: 100%;
+  background: $header-bg-color;
+  font-size: 14px;
+  line-height: 20px;
+
+  .styles_headerWrapper {
+    position: relative;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    min-width: 941px;
+    max-width: 1090px;
+    margin: 0 auto;
+    //padding: 0 2.2%;
+    font-family: $base-font-family;
+    font-size: 14px;
+    line-height: 20px;
+    background: $header-react-bg-color;
+    color: #1a1a1a;
+    left: calc(50vw - 50%);
+    left: calc(var($scrollbar-width, calc(100vw - 100%)) / 2);
+
+    //логотип
+    .logotype {
+      position: relative;
+      flex-shrink: 0;
+      margin-right: 12px;
+
+      .logotypeImg {
+        display: flex;
+      }
+
+      .logotypeText {
+        position: absolute;
+        display: inline-block;
+        font-size: 0;
+        text-indent: -9999px;
+      }
+    }
+
+    //каталог товаров
+    .styles_catalogButton {
+      font-size: 14px;
+      line-height: 20px;
+      border: 1px solid $header-catalog-button-border;
+      display: flex;
+      align-items: center;
+      min-width: 161px;
+      height: 42px;
+      cursor: pointer;
+      box-sizing: border-box;
+      border-radius: 40px;
+      margin-right: 8px;
+      font-family: $base-font-family;
+      background: transparent;
+      white-space: nowrap;
+      color: $header-catalog-button-text;
+      transition: 0.2s ease;
+
+      &:hover {
+        border-color: transparent;
+        background-color: $header-catalog-button-bg-hover;
+        color: $header-catalog-button-text-hover;
+        box-shadow: 0 2px 4px $default-shadow-color;
+      }
+
+      .styles_catalogIcon {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background: $icon-catalog-circle-bg;
+        margin: 8px 6px 8px 8px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: inherit;
+
+        .styles_square {
+          height: 50%;
+          width: 50%;
+          position: relative;
+
+          div {
+            width: 4px;
+            height: 4px;
+            background: $icon-catalog-squares-bg;
+            position: absolute;
+            transition: 0.2s ease;
+          }
+
+          .styles_one {
+            bottom: 0.5px;
+            right: 0.5px;
+          }
+
+          .styles_two {
+            bottom: 0.5px;
+            left: 0.5px;
+          }
+
+          .styles_three {
+            top: 0.5px;
+            right: 0.5px;
+          }
+
+          .styles_four {
+            top: 0.5px;
+            left: 0.5px;
+          }
+        }
+      }
+    }
+
+    //поиск товаров
+    .search_searchInputContainer {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 42px;
+      background-color: #fff;
+      border-radius: 30px;
+      box-shadow: 0 2px 4px $default-shadow-color;
+
+      .search_searchBtn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        margin: -2px 4px 0 10px;
+        color: $header-search-icon;
+        transition: color 0.2s ease;
+
+        :hover {
+          color: $header-search-icon-active;
+        }
+      }
+
+      .search_searchInput {
+        height: 100%;
+        flex: 1 1;
+        color: #1a1a1a;
+        font-size: 14px;
+        border: none;
+        border-radius: 0 30px 30px 0;
+        padding-bottom: 2px;
+        background: transparent;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+
+    //аккаунт
+    .styles_userTools {
+      font-size: 14px;
+      line-height: 20px;
+      position: relative;
+      display: block;
+      margin: 0 8px;
+      font-family: $base-font-family, Helvetica, sans-serif;
+      color: #1a1a1a;
+
+      .styles_wrapper {
+        box-sizing: border-box;
+
+        .styles_userToolsToggler {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          padding: 8px 32px 8px 8px;
+          font-family: $base-font-family, Helvetica, sans-serif;
+          font-size: inherit;
+          line-height: inherit;
+          border-radius: 80px;
+          border: 1px solid $header-button-border-color;
+          background: transparent;
+          cursor: pointer;
+          color: $header-button-text-color;
+          transition: 0.2s ease;
+
+          &.styles_active {
+            border-color: transparent;
+            background: $header-button-bg-color-active;
+            color: $header-button-text-color-active;
+            box-shadow: none;
+
+            &::before {
+              top: 13px;
+              border: 4px solid transparent;
+              border-bottom: 5px solid;
+            }
+          }
+
+          &:hover {
+            border-color: transparent;
+            background: $header-button-bg-color-hover;
+            box-shadow: 0 2px 4px $default-shadow-color;
+            color: $header-button-text-color-hover;
+          }
+
+          &::before {
+            content: " ";
+            position: absolute;
+            top: 18px;
+            right: 16px;
+            border: 4px solid transparent;
+            border-top: 5px solid;
+          }
+
+          .styles_userToolsIcon {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin-right: 2px;
+          }
+
+          .userToolsText {
+            min-width: 51px;
+            padding-bottom: 2px;
+          }
+        }
+      }
+    }
+
+    //корзина
+    .headerCart {
+      box-sizing: border-box;
+      flex-shrink: 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #1a1a1a;
+
+      .headerCartBox {
+        display: flex;
+        align-items: center;
+        padding: 10px 17px 10px 12px;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: inherit;
+        line-height: inherit;
+        border-radius: 80px;
+        border: 1px solid #dcdde0;
+        background: transparent;
+        color: inherit;
+        user-select: none;
+        transition: 0.2s ease;
+
+        .headerCartIcon {
+          position: relative;
+          display: block;
+          height: 16px;
+          margin-right: 7px;
+        }
+
+        &.headerCartBoxEmpty .headerCartCount {
+          display: none;
+        }
+
+        .headerCartCount {
+          position: absolute;
+          top: -10px;
+          left: 5px;
+          min-width: 18px;
+          max-width: 28px;
+          height: 18px;
+          padding: 0 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 14px;
+          border-radius: 10px;
+          overflow: hidden;
+          border: 2px solid #f7f7f7;
+          background: #db215f;
+          color: #fff;
+          transition: 0.2s ease;
+          box-sizing: border-box;
+        }
+
+        .headerCartLabel {
+          display: block;
+        }
+      }
+    }
+  }
+}
