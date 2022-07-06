@@ -1,0 +1,8 @@
+.l-content-wrapper {
+  min-width: 985px;
+  max-width: 1140px;
+  margin: 0 auto;
+  //left: calc((var(--scrollbar-width, calc(100vw - 100%))) / 2);
+  left: calc(50vw - 50%);
+  //left: calc(14px), (calc(100vw - 100%) / 2);
+}

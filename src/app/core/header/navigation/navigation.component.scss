@@ -250,6 +250,13 @@
         user-select: none;
         transition: 0.2s ease;
 
+        &:hover {
+          border-color: transparent;
+          background: #fff;
+          color: inherit;
+          box-shadow: 0 2px 4px rgb(23 35 38 / 5%);
+        }
+
         .headerCartIcon {
           position: relative;
           display: block;
