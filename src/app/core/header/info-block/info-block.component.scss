@@ -9,11 +9,12 @@
     font-size: 14px;
     line-height: 20px;
     font-family: Arial, sans-serif, Helvetica, sans-serif;
-    z-index: 11;
+    z-index: 10; //11
     width: 100%;
     background: inherit;
 
     .styles_headerWrapper {
+      box-sizing: content-box;
       display: flex;
       align-items: center;
       min-width: 941px;

@@ -13,7 +13,8 @@
 
 @font-face {
   font-family: "Futura"; /*a name to be used later*/
-  src: url("../assets/fonts/FuturaPT-Book.woff2") format("woff2"), url("../assets/fonts/FuturaPT-Book.woff") format("woff"),
+  src: url("../assets/fonts/FuturaPT-Book.woff2") format("woff2"),
+    url("../assets/fonts/FuturaPT-Book.woff") format("woff"),
     url("../assets/fonts/FuturaPT-Book.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -21,7 +22,8 @@
 
 @font-face {
   font-family: "FuturaDemi"; /*a name to be used later*/
-  src: url("../assets/fonts/FuturaPT-Demi.woff2") format("woff2"), url("../assets/fonts/FuturaPT-Demi.woff") format("woff"),
+  src: url("../assets/fonts/FuturaPT-Demi.woff2") format("woff2"),
+    url("../assets/fonts/FuturaPT-Demi.woff") format("woff"),
     url("../assets/fonts/FuturaPT-Demi.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
@@ -144,6 +146,147 @@ a {
 a:hover {
   color: #bc1242;
   text-shadow: none;
+}
+
+/******************************************************************************/
+/* дропдаун авторизации */
+/******************************************************************************/
+
+.cdk-overlay-pane {
+  margin-top: 7px;
+  margin-left: -64px;
+}
+
+.styles_list {
+  width: 252px;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: $base-font-family, Helvetica, sans-serif;
+  min-width: 224px;
+  padding: 12px 0;
+  border-radius: 6px;
+  background: $header-list-bg-color;
+  z-index: 15;
+  //display: block;
+  //position: fixed;
+  //position: absolute;
+  //box-shadow: 0 4px 12px 0 rgb(41 44 51 / 12%), 0 2px 2px 0 rgb(41 44 51 / 4%);
+
+  .userToolsAuth {
+    margin-bottom: 16px;
+
+    .userToolsImage {
+      display: block;
+      margin: 0 auto 12px;
+      width: 48px;
+      height: 48px;
+      background-image: url(../app/../assets/icons/user-default-logo.svg);
+    }
+
+    .userToolsBtn {
+      &:hover {
+        background: #006bb8;
+      }
+
+      display: block;
+      margin: 0 auto;
+      padding: 10px 24px;
+      border: 0;
+      border-radius: 4px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: inherit;
+      line-height: inherit;
+      background: #0077cc;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+  }
+
+  .ProfileScreen_profileScreen {
+    .ProfileScreen_content {
+      font-size: 14px;
+      line-height: 20px;
+      width: 100%;
+      display: flex;
+      z-index: 1;
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .ProfileItem_item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: $profile-item-bg-color;
+        align-content: center;
+        align-items: center;
+
+        .ProfileItem_bordered {
+          width: 220px;
+          height: 1px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+          border-top: 1px solid $user-tools-separator-color;
+        }
+
+        .ProfileItem_itemCommon {
+          &:hover {
+            background-color: $header-list-item-bg-color-hover;
+            color: $header-list-item-color-hover;
+          }
+
+          display: flex;
+          width: 100%;
+          height: 30px;
+          padding: 0 17px;
+          text-decoration: none;
+          align-content: center;
+          align-items: center;
+          cursor: pointer;
+          -webkit-user-select: none;
+          user-select: none;
+          box-sizing: border-box;
+          color: $profile-item-color;
+          //justify-content: space-between;
+
+          .ProfileItem_icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: 4px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 24px;
+            fill: currentColor;
+            z-index: 999;
+
+            .ProfileItem_itemText {
+              width: 100%;
+            }
+          }
+        }
+
+        .ProfileItem_counter {
+          display: block;
+          flex-shrink: 0;
+          min-width: 18px;
+          height: 18px;
+          padding-left: 5px;
+          padding-right: 5px;
+          font-weight: 700;
+          font-size: 11px;
+          line-height: 18px;
+          border-radius: 10px;
+          text-align: center;
+          background: $counter-bg-color;
+          color: $counter-color;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
 }
 
 /******************************************************************************/
@@ -3066,4 +3209,13 @@ html.display-short .l-content {
 .goods_not_found {
   margin-right: 255px;
   text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

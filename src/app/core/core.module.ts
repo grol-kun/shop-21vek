@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 import { CoreComponent } from './core.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,7 +22,9 @@ import { NavBarComponent } from './header/nav-bar/nav-bar.component';
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
+    MatMenuModule,
+    MatIconModule
   ],
   exports:[
     CoreComponent,

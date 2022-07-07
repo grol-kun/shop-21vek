@@ -5,12 +5,13 @@
   background: $header-promo-line-bg;
   overflow: hidden;
   font-family: $base-font-family, Helvetica, sans-serif;
-  z-index: 11;
+  z-index: 10;
   width: 100%;
   font-size: 14px;
   line-height: 20px;
 
   .styles_headerWrapper {
+    box-sizing: content-box;
     position: relative;
     padding: 0 32px;
     background: transparent;

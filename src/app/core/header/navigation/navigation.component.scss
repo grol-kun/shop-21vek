@@ -9,6 +9,7 @@
   line-height: 20px;
 
   .styles_headerWrapper {
+    box-sizing: content-box;
     position: relative;
     padding: 24px 32px;
     display: flex;
@@ -295,6 +296,30 @@
           display: block;
         }
       }
+
+      //описание дропдауна
+      .mat-menu-panel {
+        width: 252px;
+        .styles_list {
+          width: 252px;
+          top: 114px;
+          left: 1136.96px;
+          display: block;
+          transform: translateX(-50%);
+          position: fixed;
+          font-size: 14px;
+          line-height: 20px;
+          font-family: $base-font-family, Helvetica, sans-serif;
+          position: absolute;
+          min-width: 224px;
+          padding: 12px 0;
+          border-radius: 6px;
+          background: $header-list-bg-color;
+          box-shadow: 0 4px 12px 0 rgb(41 44 51 / 12%), 0 2px 2px 0 rgb(41 44 51 / 4%);
+          z-index: 15;
+        }
+      }
+
     }
   }
 }
