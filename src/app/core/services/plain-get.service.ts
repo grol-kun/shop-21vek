@@ -5,9 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class PlainGetService {
 
+  private serverUrl = 'http://localhost:3004/';
+
   constructor(private httpClient: HttpClient) { }
 
   public get(param: string): Observable<any> {
-    return this.httpClient.get(`http://localhost:3004/${param}`);
+    //console.log(`${this.serverUrl}${param}`);
+    return this.httpClient.get(`${this.serverUrl}${param}`)
   }
 }
