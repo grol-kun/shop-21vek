@@ -4,8 +4,7 @@
     <!-- логотип -->
     <div class="logotype">
       <a href="/" class="logotypeImg" title="На главную страницу">
-        <object type="image/svg+xml" data="../../../../assets/icons/logo.svg" class="svg" width="126" height="24">
-        </object>
+        <img src="../../../../assets/icons/logo.svg" alt="Онлайн-гипермаркет 21vek.by">
       </a>
       <span class="logotypeText">Онлайн-гипермаркет 21vek.by</span>
     </div>
@@ -36,22 +35,7 @@
     </button>
 
     <!-- поиск товаров -->
-    <div class="search_searchInputContainer">
-
-      <button type="button" class="search_searchBtn">
-        <div class="" role="presentation">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M16.4406 15.3108C18.392 12.8035 18.2153 9.17663 15.9107 6.87197C13.4147 4.37601 9.36794 4.37601 6.87197 6.87197C4.37601 9.36794 4.37601 13.4147 6.87197 15.9107C9.17662 18.2153 12.8034 18.392 15.3108 16.4406L17.3058 18.5368C17.6152 18.8619 18.1317 18.8683 18.449 18.551C18.7555 18.2445 18.7616 17.7495 18.4628 17.4356L16.4406 15.3108ZM14.7857 14.776C16.6528 12.9036 16.6512 9.87216 14.7808 8.00181C12.9089 6.12984 9.87379 6.12984 8.00181 8.00181C6.12984 9.87379 6.12984 12.9089 8.00181 14.7808C9.87216 16.6512 12.9036 16.6528 14.776 14.7857C14.7776 14.7841 14.7792 14.7825 14.7808 14.7808C14.7825 14.7792 14.7841 14.7776 14.7857 14.776Z"
-              fill="currentColor"></path>
-          </svg>
-        </div>
-      </button>
-
-      <input id="catalogSearch" type="text" placeholder="Поиск товаров" aria-label="search" class="search_searchInput"
-        autocomplete="off" spellcheck="false" value="">
-
-    </div>
+    <app-search class="appSearch"></app-search>
 
     <!-- аккаунт -->
     <div class="styles_userTools">
@@ -76,19 +60,6 @@
               </div><span class="userToolsText">Аккаунт</span>
             </button>
 
-
-            <!--             <mat-menu #appMenu="matMenu">
-              <ng-template matMenuContent let-name="name">
-                <button mat-menu-item>Settings</button>
-                <button mat-menu-item>Log off {{name}}</button>
-              </ng-template>
-            </mat-menu> -->
-
-            <!--             <mat-menu #menu="matMenu">
-              <button mat-menu-item class="windy">Item 1</button>
-              <button mat-menu-item>Item 2</button>
-            </mat-menu> -->
-
             <!-- дропдаун меню -->
             <mat-menu #appMenu="matMenu" xPosition="after">
               <ng-template matMenuContent let-name="name">
@@ -96,7 +67,7 @@
                   <div class="styles_list styles_enterDone">
                     <div class="userToolsAuth">
                       <div class="userToolsImage"></div>
-                      <button type="button" rel="nofollow" class="userToolsBtn" title="Вход">
+                      <button type="button" rel="nofollow" class="userToolsBtn" title="Вход" >
                         <span>Войти</span>
                       </button>
                     </div>
