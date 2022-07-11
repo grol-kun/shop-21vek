@@ -11,6 +11,6 @@
   </button>
 
   <input id="catalogSearch" type="text" placeholder="Поиск товаров" aria-label="search" class="search_searchInput"
-    autocomplete="off" spellcheck="false" value="" [(ngModel)]="searchParam">
+    autocomplete="off" spellcheck="false" #searchInput value="" [(ngModel)]="searchParam" (keyup)="doSearch(searchInput.value)">
 
 </div>

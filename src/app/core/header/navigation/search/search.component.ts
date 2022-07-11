@@ -15,4 +15,9 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public doSearch(value:string) {
+    this.searchParam = value;
+    let result = this.goodsSearchService.getGoodsByNames(this.searchParam);
+    console.log(result);
+  }
 }

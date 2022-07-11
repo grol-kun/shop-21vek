@@ -12,6 +12,7 @@ import { NavigationComponent } from './header/navigation/navigation.component';
 import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './header/navigation/search/search.component';
+import { PlainGetService } from './services/plain-get.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SearchComponent } from './header/navigation/search/search.component';
   exports: [
     CoreComponent,
     HeaderComponent
-  ]
+  ],
+  providers: [PlainGetService]
 })
 export class CoreModule { }
