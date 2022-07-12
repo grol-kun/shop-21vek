@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AccountMenuComponent } from './header/navigation/account-menu/account-menu.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatInputModule} from '@angular/material/input';
     InfoBlockComponent,
     NavigationComponent,
     NavBarComponent,
-    SearchComponent
+    SearchComponent,
+    AccountMenuComponent
   ],
   imports: [
     CommonModule,

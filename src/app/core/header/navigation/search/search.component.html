@@ -11,8 +11,8 @@
   </button>
 
 
-<!-- мой вариант 2.0 -->
-<!--   <input type="text" placeholder="Поиск товаров" class="search_searchInput" autocomplete="off" spellcheck="false"
+  <!-- мой вариант 2.0 -->
+  <!--   <input type="text" placeholder="Поиск товаров" class="search_searchInput" autocomplete="off" spellcheck="false"
     [formControl]="searchControl">
 
   <div *ngIf="results" class="search-wrapper">
@@ -59,16 +59,16 @@
 
 
   <!-- переделка  материала-->
-    <form class="search-form">
-    <mat-form-field  appearance="fill">
-      <input type="text"
-      class="search_searchInput"
-      placeholder="Поиск товаров"
-      aria-label="Number"
-      matInput [formControl]="searchControl"
-      [matAutocomplete]="auto">
+  <form class="search-form">
+    <mat-form-field appearance="fill">
+      <input type="text" class="search_searchInput" placeholder="Поиск товаров" aria-label="Number" matInput
+        [formControl]="searchControl" [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option *ngFor="let option of results" [value]="option.name" class="search_option">
+          <img src="" alt="" style="width: 40px;
+          height: 40px;
+          margin: 0 10px 0 0;
+      vertical-align: bottom;">
           {{option.name}}
         </mat-option>
       </mat-autocomplete>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import { GoodsSearchService } from 'src/app/core/services/goods-search.service';
@@ -17,6 +17,7 @@ export interface IGood {
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   providers: [GoodsSearchService],
+  changeDetection: ChangeDetectionStrategy.OnPush
   //encapsulation: ViewEncapsulation.None
 })
 export class SearchComponent implements OnInit {
@@ -39,6 +40,7 @@ export class SearchComponent implements OnInit {
         console.log(this.results);
 
         this.cdr.detectChanges();
+        //this.cdr.markForCheck();
       });
   }
 

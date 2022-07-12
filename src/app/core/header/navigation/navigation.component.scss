@@ -128,76 +128,7 @@
     }
 
     //аккаунт
-    .styles_userTools {
-      font-size: 14px;
-      line-height: 20px;
-      position: relative;
-      display: block;
-      margin: 0 8px;
-      font-family: $base-font-family, Helvetica, sans-serif;
-      color: #1a1a1a;
 
-      .styles_wrapper {
-        box-sizing: border-box;
-
-        .styles_userToolsToggler {
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          padding: 8px 32px 8px 8px;
-          font-family: $base-font-family, Helvetica, sans-serif;
-          font-size: inherit;
-          line-height: inherit;
-          border-radius: 80px;
-          border: 1px solid $header-button-border-color;
-          background: transparent;
-          cursor: pointer;
-          color: $header-button-text-color;
-          transition: 0.2s ease;
-
-          &.styles_active {
-            border-color: transparent;
-            background: $header-button-bg-color-active;
-            color: $header-button-text-color-active;
-            box-shadow: none;
-
-            &::before {
-              top: 13px;
-              border: 4px solid transparent;
-              border-bottom: 5px solid;
-            }
-          }
-
-          &:hover {
-            border-color: transparent;
-            background: $header-button-bg-color-hover;
-            box-shadow: 0 2px 4px $default-shadow-color;
-            color: $header-button-text-color-hover;
-          }
-
-          &::before {
-            content: " ";
-            position: absolute;
-            top: 18px;
-            right: 16px;
-            border: 4px solid transparent;
-            border-top: 5px solid;
-          }
-
-          .styles_userToolsIcon {
-            display: block;
-            width: 24px;
-            height: 24px;
-            margin-right: 2px;
-          }
-
-          .userToolsText {
-            min-width: 51px;
-            padding-bottom: 2px;
-          }
-        }
-      }
-    }
 
     //корзина
     .headerCart {
