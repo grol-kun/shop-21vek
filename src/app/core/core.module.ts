@@ -10,9 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { InfoBlockComponent } from './header/info-block/info-block.component';
 import { NavigationComponent } from './header/navigation/navigation.component';
 import { NavBarComponent } from './header/nav-bar/nav-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './header/navigation/search/search.component';
 import { PlainGetService } from './services/plain-get.service';
+import {MatCardModule} from '@angular/material/card';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { PlainGetService } from './services/plain-get.service';
     BrowserModule,
     MatMenuModule,
     MatIconModule,
-    FormsModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     CoreComponent,

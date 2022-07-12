@@ -10,7 +10,6 @@ export class PlainGetService {
   constructor(private httpClient: HttpClient) { }
 
   public get(param: string): Observable<any> {
-    //console.log(`${this.serverUrl}${param}`);
     return this.httpClient.get(`${this.serverUrl}${param}`)
   }
 }

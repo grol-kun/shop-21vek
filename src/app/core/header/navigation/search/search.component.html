@@ -10,7 +10,70 @@
     </div>
   </button>
 
-  <input id="catalogSearch" type="text" placeholder="Поиск товаров" aria-label="search" class="search_searchInput"
-    autocomplete="off" spellcheck="false" #searchInput value="" [(ngModel)]="searchParam" (keyup)="doSearch(searchInput.value)">
+
+<!-- мой вариант 2.0 -->
+<!--   <input type="text" placeholder="Поиск товаров" class="search_searchInput" autocomplete="off" spellcheck="false"
+    [formControl]="searchControl">
+
+  <div *ngIf="results" class="search-wrapper">
+    <div id="j-suggest_items" role="presentation" class="SearchResults_contentWrapper">
+
+      <div class="SearchResults_content">
+        <ul>
+          <li class="SearchSuggestList_listContainer" *ngFor="let item of results" [value]="item.imageUrls">
+            <div class="SearchSuggestList_title"></div>
+            <a href="" class="SearchSuggestList_link">
+              <div class="">
+                <div class="ProductItem_productItem">
+                  <img [src]="" alt="" class="SuggestProductImage_image">
+                  <div class="ProductItem_info">
+                    <div class="ProductItem_title"><span>{{item.name}}</span></div>
+                    <div class="ProductItem_price"><span>{{item.price}}</span></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="SearchResults_backdrop"></div>
+  </div> -->
+
+
+
+  <!-- мой вариант -->
+  <!--
+    <input type="text" placeholder="Поиск товаров" class="search_searchInput" autocomplete="off" spellcheck="false"
+    [formControl]="searchControl">
+
+  <div *ngIf="results && results.length > 0">
+    <mat-card *ngFor="let item of results">
+      <a>
+        {{item.name}} {{item.price}}
+      </a>
+    </mat-card>
+  </div> -->
+
+
+  <!-- переделка  материала-->
+    <form class="search-form">
+    <mat-form-field  appearance="fill">
+      <input type="text"
+      class="search_searchInput"
+      placeholder="Поиск товаров"
+      aria-label="Number"
+      matInput [formControl]="searchControl"
+      [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of results" [value]="option.name" class="search_option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
 
 </div>
