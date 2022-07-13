@@ -183,6 +183,26 @@
 
           .poster__item {
             position: absolute;
+            &.j-poster__item-1 {
+              right: 3%;
+              top: 31%;
+              max-height: 53%;
+            }
+            &.j-poster__item-2 {
+              right: 10%;
+              top: 14%;
+              max-height: 76%;
+            }
+            &.j-poster__item-3 {
+              right: 4%;
+              top: 38%;
+              max-height: 30%;
+            }
+            &.j-poster__item-4 {
+              right: 23%;
+              top: 21%;
+              max-height: 63%;
+            }
           }
 
           img {

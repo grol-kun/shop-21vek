@@ -1,0 +1,91 @@
+<div class="row custom-row">
+  <div class="col-sm-5 custom-container jumbotron">
+
+    <form class="form-horizontal" [formGroup]="signupForm" (ngSubmit)="onFormSubmit()">
+      <fieldset>
+        <legend>SignUp</legend>
+
+        <!--- Email Block --->
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text" formControlName="email" id="inputEmail" placeholder="Email">
+        </div>
+
+        <!-- Email error block -->
+        <div *ngIf="email?.invalid && email?.touched" class="col-sm-3 text-danger">
+
+          <div *ngIf="email?.errors?.['required']">
+            Email field can't be blank
+          </div>
+
+          <div *ngIf="email?.errors?.['pattern']">
+            The email id doesn't seem right
+          </div>
+
+        </div>
+
+        <!--- Password Block --->
+        <div formGroupName="password">
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" formControlName="pwd" id="inputPassword" placeholder="Password">
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" formControlName="confirmPwd" id="confirmPassword" placeholder="Password">
+          </div>
+        </div>
+
+        <!-- Password error block -->
+        <div *ngIf="(password?.invalid && password?.touched)" class="col-sm-3 text-danger">
+          <ng-container *ngIf="password?.errors?.['mismatch'];then first else second"> </ng-container>
+
+          <ng-template #first>
+            Password do not match
+          </ng-template>
+
+          <ng-template #second>
+            Password needs to be more than 8 characters
+          </ng-template>
+        </div>
+
+
+
+        <!--- Gender Block -->
+        <div class="form-group">
+          <label for="select">Gender</label>
+          <select id="select" formControlName="gender">
+
+            <option *ngFor="let g of genderList" [value]="g"> {{g}}
+            </option>
+          </select>
+        </div>
+
+        <!--- Terms and conditions Block --->
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" formControlName="terms"> Confirm that you've read the Terms and
+            Conditions
+          </label>
+        </div>
+
+        <!--- Terms error block -->
+        <div *ngIf="(terms?.invalid && terms?.touched)" class="col-sm-3 text-danger">
+          Please accept the Terms and conditions first.
+        </div>
+
+        <!--- Buttons Block --->
+        <div class="form-group">
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!--- Log the FormGroup values to see if the binding is working -->
+<pre><p>Form value {{ signupForm.value | json }} </p></pre>
+<p> Form status {{ signupForm.status | json}} </p>
+<p>{{ password?.errors?.['mismatch'] | json }}</p>
