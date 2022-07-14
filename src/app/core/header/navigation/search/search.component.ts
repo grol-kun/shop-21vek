@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import { GoodsSearchService } from 'src/app/core/services/goods-search.service';
+import { MatAutocompleteModule, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS } from '@angular/material/autocomplete';
 
 export interface IGood {
   id: string,
@@ -16,19 +17,27 @@ export interface IGood {
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  providers: [GoodsSearchService],
+  providers: [GoodsSearchService, {
+    provide: MAT_AUTOCOMPLETE_DEFAULT_OPTIONS,
+      useValue: { overlayPanelClass: 'customClass' }
+  }],
   changeDetection: ChangeDetectionStrategy.OnPush
   //encapsulation: ViewEncapsulation.None
 })
 export class SearchComponent implements OnInit {
+  @Input('class')
+  classList!: string | string[];
+
   //public value!: IGood;
   private destroy$ = new Subject<void>();
   public results: IGood[] = [];
   public searchControl = new FormControl('');
+  public myAutoComplitStyle = 'left:0';
 
   constructor(private goodsSearchService: GoodsSearchService, private cdr: ChangeDetectorRef) { }
 
   public ngOnInit(): void {
+    this.classList = 'myAutoComplitStyle';
     this.searchControl.valueChanges
       .pipe(
         debounceTime(500),
@@ -61,3 +70,9 @@ export class SearchComponent implements OnInit {
     this.destroy$.complete();
   }
 }
+
+
+function panelWidthValue(panelWidthValue: any) {
+  throw new Error('Function not implemented.');
+}
+

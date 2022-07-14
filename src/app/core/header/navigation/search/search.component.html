@@ -61,16 +61,39 @@
   <!-- переделка  материала-->
   <form class="search-form">
     <mat-form-field appearance="fill">
-      <input type="text" class="search_searchInput" placeholder="Поиск товаров" aria-label="Number" matInput
+
+      <input matInput type="text" class="search_searchInput" placeholder="Поиск товаров" aria-label="Number"
         [formControl]="searchControl" [matAutocomplete]="auto">
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of results" [value]="option.name" class="search_option">
-          <img src="" alt="" style="width: 40px;
-          height: 40px;
-          margin: 0 10px 0 0;
-      vertical-align: bottom;">
-          {{option.name}}
+
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" class="myAutoComplitStyle"
+        classlist="myAutoComplitStyle" [panelWidth]="'100vw'" panelClass="CustomClass" [class]="myAutoComplitStyle">
+
+        <mat-option *ngFor="let option of results; let idx = index" [value]="option.name" class="search_option">
+
+          <div class="SearchSuggestList_title">
+            <ng-container *ngIf="idx===0;then first else second"> </ng-container>
+
+            <ng-template #first>
+              Товар
+            </ng-template>
+
+            <ng-template #second>
+            </ng-template>
+          </div>
+
+
+          <a href="/wallpaper/1807729/" class="SearchSuggestList_link">
+            <div class="SearchSuggestList_listItem"><span>{{option.name}}</span></div>
+          </a>
+
+          <!--           <img src="" alt="" style="width: 40px;
+            height: 40px;
+            margin: 0 10px 0 0;
+            vertical-align: bottom;"> -->
+
+          <!-- {{option.name}} -->
         </mat-option>
+
       </mat-autocomplete>
     </mat-form-field>
   </form>
