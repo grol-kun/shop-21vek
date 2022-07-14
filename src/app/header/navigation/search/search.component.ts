@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, Observable, Subject, switchMap, takeUntil } from 'rxjs';
-import { GoodsSearchService } from 'src/app/core/services/goods-search.service';
+import { GoodsSearchService } from 'src/app/services/goods-search.service';
 import { MatAutocompleteModule, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS } from '@angular/material/autocomplete';
 
 export interface IGood {
