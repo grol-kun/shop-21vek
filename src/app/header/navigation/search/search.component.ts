@@ -19,7 +19,7 @@ export interface IGood {
   styleUrls: ['./search.component.scss'],
   providers: [GoodsSearchService, {
     provide: MAT_AUTOCOMPLETE_DEFAULT_OPTIONS,
-      useValue: { overlayPanelClass: 'customClass' }
+      useValue: { overlayPanelClass: 'my-search-class' }
   }],
   changeDetection: ChangeDetectionStrategy.OnPush
   //encapsulation: ViewEncapsulation.None

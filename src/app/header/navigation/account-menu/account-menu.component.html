@@ -4,8 +4,12 @@
     <div>
       <!-- по нажатию добавляем класс styles_active для styles_userToolsToggler -->
       <div>
-        <button type="button" class="styles_userToolsToggler" data-toggle="dropdown" [matMenuTriggerFor]="appMenu"
-          [matMenuTriggerData]="{name: 'Sally'}">
+        <button type="button"
+        class="styles_userToolsToggler"
+        data-toggle="dropdown"
+        [matMenuTriggerFor]="appMenu"
+        [matMenuTriggerData]="{name: 'Sally'}"
+        >
           <!-- <button type="button" class="styles_userToolsToggler" data-toggle="dropdown" [matMenuTriggerFor]="menu"> -->
           <div class="styles_userToolsIcon">
             <div class="" role="presentation">
@@ -28,7 +32,7 @@
               <div class="styles_list styles_enterDone">
                 <div class="userToolsAuth">
                   <div class="userToolsImage"></div>
-                  <button type="button" rel="nofollow" class="userToolsBtn" title="Вход">
+                  <button type="button" class="userToolsBtn" title="Вход" (click)="openDialog()">
                     <span>Войти</span>
                   </button>
                 </div>

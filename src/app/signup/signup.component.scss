@@ -1,0 +1,246 @@
+@import "../../styles/variables.scss";
+
+::ng-deep.cdk-overlay-container {
+  .cdk-global-overlay-wrapper {
+    //align-items: unset !important;
+    align-items: baseline !important;
+    .cdk-overlay-pane.my-dialog-class {
+      margin: 96px 0 0 0 !important;
+      .mat-dialog-container {
+        padding: 0;
+        overflow: hidden;
+        width: 480px;
+        min-width: 480px;
+        background-color: #fff;
+        border-radius: 8px;
+        font-family: $base-font-family;
+        -webkit-font-smoothing: antialiased;
+
+        .styles_headerModal {
+          display: flex;
+          justify-content: flex-end;
+
+          .ng-star-inserted {
+            position: absolute;
+            left: 16px;
+
+            .styles_navigation {
+              background: none;
+              box-shadow: none;
+              border: 0;
+              display: flex;
+              align-items: center;
+              position: absolute;
+              top: 15px;
+              color: #b4b5b8;
+              font-size: 14px;
+              line-height: 10px;
+              cursor: pointer;
+
+              .styles_backIcon {
+                color: #dcdde0;
+              }
+
+              span {
+                margin-left: 6px;
+              }
+            }
+          }
+
+          .styles_container {
+            display: inline-block;
+            position: relative;
+            line-height: 24px;
+            height: 40px;
+
+            .styles_closePopupIcon {
+              margin: 16px 16px -24px 0;
+              position: relative;
+              top: 0;
+              right: 0;
+              cursor: pointer;
+              z-index: 999;
+              color: #dcdde0;
+
+              &:hover {
+                color: #a0a1a3;
+              }
+            }
+          }
+        }
+
+        .sign-forms-wrapper {
+          .style_form {
+            position: relative;
+            padding: 0 40px;
+            // padding-bottom: 40px;
+
+            &.styles_bottomIndent {
+              padding-bottom: 40px;
+            }
+
+            .style_formTitle {
+              text-align: center;
+              font-weight: 700;
+              color: #1a1a1a;
+              margin: 0;
+              font-size: 18px;
+              line-height: 26px;
+              font-family: $base-font-family;
+            }
+
+            .style_inputComponent {
+              font-family: $base-font-family;
+              -webkit-font-smoothing: antialiased;
+              position: relative;
+              margin: 16px 0;
+
+              .style_labelWrapper {
+                font-size: 13px;
+                line-height: 20px;
+                padding-bottom: 4px;
+                color: #b0b3b8;
+                display: flex;
+                justify-content: space-between;
+              }
+
+              .style_inputContainer {
+                /* position: relative;
+                  overflow: hidden;
+                  box-sizing: border-box;
+                  height: 40px;
+                  background-color: #fff;
+                  border-radius: 2px; */
+
+                .full-width {
+                  width: 100%;
+                }
+
+                /*                 .mat-form-field-appearance-fill .mat-form-field-flex {
+                  padding: 0;
+                }
+
+                .mat-form-field-appearance-fill .mat-form-field-infix {
+                  padding: 0.25em 0.25em 0.75em 0.25em;
+                } */
+              }
+            }
+
+            .styles_link {
+              position: absolute !important;
+              right: 0;
+              z-index: 1;
+              font-size: 13px;
+              line-height: 20px;
+              background: none;
+              padding: 0;
+              height: auto;
+              min-width: auto;
+              font-size: 13px;
+              font-weight: 400;
+              color: #07c;
+              cursor: pointer;
+            }
+
+            .style_agreementTextWrapper {
+              font-size: 12px;
+              line-height: 18px;
+              display: flex;
+              color: #1a1a1a;
+              margin: -4px 0 18px;
+
+              .style_icon {
+                display: block;
+                width: 12px;
+                height: 12px;
+                margin: 2px 6px 0 0 !important;
+              }
+
+              a {
+                display: inline;
+                color: inherit;
+                transition-property: none;
+                border-bottom: 1px solid;
+                height: 1.334em;
+                transition-duration: 0.1s;
+                transition-timing-function: ease-in-out;
+                text-decoration: none;
+
+                &:hover {
+                  color: #0068b2 !important;
+                }
+              }
+            }
+
+            .style_actions {
+              text-align: center;
+
+              .styles_submitButton {
+                min-width: 91px;
+                height: auto;
+                margin: 16px 0 0;
+                padding: 14px 24px;
+                line-height: 20px;
+              }
+            }
+
+            .styles_bottomLinks {
+              margin: 24px 0 40px;
+              overflow: hidden;
+
+              div {
+                text-align: center;
+                height: 20px;
+                line-height: 20px;
+                margin: 0;
+
+                button {
+                  position: relative !important;
+                  display: inline-block;
+                  font-size: 14px;
+                  line-height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .styles_successMessageWrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+      text-align: center;
+      padding-bottom: 40px;
+
+      .styles_successImage {
+        height: 160px;
+        margin-bottom: 16px;
+      }
+
+      .styles_successTitle {
+        font-family: $base-font-family;
+        font-weight: 700;
+        margin: 8px 0 0;
+        -webkit-font-smoothing: antialiased;
+        font-size: 18px;
+        line-height: 26px;
+      }
+
+      .styles_successText {
+        margin: 8px 0 16px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .style_baseActionButton {
+        height: auto;
+        margin: 16px 0 0;
+        padding: 14px 24px;
+        line-height: 20px;
+      }
+    }
+  }
+}

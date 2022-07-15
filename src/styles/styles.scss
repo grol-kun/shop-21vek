@@ -292,6 +292,29 @@ a:hover {
 /******************************************************************************/
 /*GLOBAL*/
 /******************************************************************************/
+.styles_reactButton {
+  display: inline-block;
+  position: relative;
+  height: 40px;
+  min-width: 40px;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-family: $base-font-family;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #07c;
+  cursor: pointer;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+}
 
 .g-no_href,
 .g-no_href:hover {
