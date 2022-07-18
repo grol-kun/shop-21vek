@@ -33,39 +33,32 @@
   <div mat-dialog-content class="" [ngSwitch]="showSubContent">
 
     <div class="sign-forms-wrapper" *ngSwitchCase="1">
-
-      <form class="style_form" [formGroup]="signupForm" (ngSubmit)="onFormSubmit()">
+      <form class="style_form" [formGroup]="signupForm" (ngSubmit)="onAuthSubmit()">
 
         <h5 class="style_formTitle">Вход</h5>
-
         <div class="login_form">
-
           <div class="style_inputComponent">
-
             <div class="style_labelWrapper">
               <label for="inputEmail">Электронная почта</label>
             </div>
-
             <div class="style_inputContainer">
-              <mat-form-field class="full-width" appearance="fill">
-                <input type="email" matInput formControlName="email" id="inputEmail" placeholder="" value="">
+              <mat-form-field class="full-width" appearance="standard">
+                <input type="email" matInput formControlName="email" id="inputEmail" placeholder="" value="" autocomplete="username">
               </mat-form-field>
             </div>
-
           </div>
+
 
           <button class="styles_reactButton styles_link" type="button">Забыли пароль</button>
 
           <div class="style_inputComponent">
-
             <div class="style_labelWrapper">
               <label for="inputPassword">Пароль</label>
             </div>
-
             <div class="style_inputContainer">
-              <mat-form-field class="full-width" appearance="fill">
+              <mat-form-field class="full-width" appearance="standard">
                 <input matInput type="password" formControlName="password" id="inputPassword"
-                  [type]="hide ? 'password' : 'text'">
+                  [type]="hide ? 'password' : 'text'"  autocomplete="current-password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                   [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -135,13 +128,16 @@
           </div>
 
           <div class="style_actions">
-            <button class="styles_reactButton style_baseActionButton styles_submitButton" type="submit">Войти</button>
+            <button class="styles_reactButton style_baseActionButton styles_submitButton"
+            type="submit"
+            (click)="onAuthSubmit()"
+            >Войти</button>
           </div>
 
           <div class="styles_bottomLinks">
             <div>
               <button class="styles_reactButton styles_link" type="button"
-                (click)="showSubContent=2">Регистрация</button>
+                (click)="showRegistrForm()">Регистрация</button>
             </div>
           </div>
 
@@ -149,20 +145,21 @@
       </form>
     </div>
 
-    <div class="sign-forms-wrapper" *ngSwitchCase="2">
 
-      <form class="style_form styles_bottomIndent" [formGroup]="signupForm" (ngSubmit)="onFormSubmit()">
+
+    <div class="sign-forms-wrapper" *ngSwitchCase="2">
+      <form class="style_form styles_bottomIndent" [formGroup]="registrForm" (ngSubmit)="onRegSubmit()" #regForm>
         <h5 class="style_formTitle">Регистрация</h5>
 
         <div class="style_inputComponent">
 
           <div class="style_labelWrapper">
-            <label for="inputEmail">Электронная почта</label>
+            <label for="inputEmailReg">Электронная почта</label>
           </div>
 
           <div class="style_inputContainer">
-            <mat-form-field class="full-width" appearance="fill">
-              <input type="email" matInput formControlName="email" id="inputEmail" placeholder="" value="">
+            <mat-form-field class="full-width" appearance="standard">
+              <input type="email" matInput formControlName="emailReg" id="inputEmailReg" placeholder="" value="">
             </mat-form-field>
           </div>
 
@@ -185,10 +182,11 @@
 
         <div class="style_actions">
           <button class="styles_reactButton styles_submitButton" type="submit"
-            (click)="showSubContent=3">Продолжить</button>
+            (click)="onRegSubmit()">Продолжить</button>
         </div>
       </form>
     </div>
+
 
 
     <div *ngSwitchCase="3">
@@ -209,27 +207,4 @@
   <p> Form status {{ signupForm.status | json}} </p> -->
 </div>
 
-<!-- <div [ngSwitch]="showSubContent">
 
-  <div *ngSwitchDefault>
-    <button (click)="showSubContent=1">Show Sub content1</button>
-    <button (click)="showSubContent=2">Show Sub content2</button>
-    <button (click)="showSubContent=3">Show Sub content3</button>
-    <h2> Main content </h2>
-  </div>
-
-  <div *ngSwitchCase="1">
-    Sub Content 1 here
-  </div>
-
-  <div *ngSwitchCase="2">
-    Sub Content 2 here
-  </div>
-
-
-  <div *ngSwitchCase="3">
-    Sub Content 3 here
-  </div>
-
-  <button *ngIf="showSubContent" (click)="showSubContent=0">Show Main Content</button>
-</div> -->

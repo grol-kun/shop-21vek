@@ -17,7 +17,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PlainGetService } from './services/plain-get.service';
+import { HttpService } from './services/http.service';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -59,7 +59,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatButtonModule
   ],
-  providers: [PlainGetService, {
+  providers: [HttpService, {
     provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue:
       { hasBackdrop: true, panelClass: "my-dialog-class" }
   }],

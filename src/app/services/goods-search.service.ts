@@ -1,15 +1,15 @@
 import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Observable, map, debounceTime, distinctUntilChanged, filter, of, switchMap, catchError } from 'rxjs';
-import { IGood } from '../header/navigation/search/search.component';
-import { PlainGetService } from './plain-get.service';
+import { Good } from '../good';
+import { HttpService } from './http.service';
 
 @Injectable()
 
 export class GoodsSearchService {
 
-  constructor(private plainGetService: PlainGetService) { }
+  constructor(private httpService: HttpService) { }
 
-  public getGoodsByNames(key: string): Observable<IGood[]> {
+  public getGoodsByNames(key: string): Observable<Good[]> {
     //  return of(key).pipe(
     //     debounceTime(700),
     //     distinctUntilChanged(),
@@ -21,7 +21,7 @@ export class GoodsSearchService {
     //     })
     //   )
 
-    return (this.plainGetService.get(`goods/search?text=${key}`)).pipe(
+    return (this.httpService.get(`goods/search?text=${key}`)).pipe(
       catchError(err => of([]))
     )
   }

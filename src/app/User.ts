@@ -1,4 +1,4 @@
-export class User {
+/* export class User {
 
   id!: number;
   email!: string;
@@ -16,12 +16,12 @@ export class User {
     Object.assign(this, values);
 }
 
-}
+} */
 
 
 
 
-/* export interface IUser {
+export interface IUser {
   firstName: string,
   lastName: string,
   token: string,
@@ -45,4 +45,4 @@ export class User implements IUser {
     //Constructor initialization
     Object.assign(this, values);
   }
-} */
+}

@@ -3,16 +3,8 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import { GoodsSearchService } from 'src/app/services/goods-search.service';
 import { MatAutocompleteModule, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS } from '@angular/material/autocomplete';
+import { Good } from 'src/app/good';
 
-export interface IGood {
-  id: string,
-  name: string,
-  imageUrls: [],
-  availableAmount: number,
-  price: number,
-  rating: number,
-  description: string
-}
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -30,7 +22,7 @@ export class SearchComponent implements OnInit {
 
   //public value!: IGood;
   private destroy$ = new Subject<void>();
-  public results: IGood[] = [];
+  public results: Good[] = [];
   public searchControl = new FormControl('');
   public myAutoComplitStyle = 'left:0';
 
