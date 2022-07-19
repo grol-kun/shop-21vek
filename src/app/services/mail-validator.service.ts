@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { User } from '../user';
+import { HttpService } from './http.service';
+@Injectable()
+export class MailValidatorService {
+  private users!: User[];
+
+  constructor(private http: HttpService) {
+    /** Пользователи, зарегистрированные в системе */
+    this.http.get('users')
+      .subscribe((res) => this.users = res)
+    console.log(this.users); ///////////////////////////
+  }
+
+  /** Запрос валидации */
+  validateMail(userMail: string): Observable<ValidationErrors> {
+    /** Эмуляция запроса на сервер */
+    return new Observable<ValidationErrors>(observer => {
+      const user = this.users.find(user => user.login === userMail);
+      /** если пользователь есть в массиве, то возвращаем ошибку */
+      if (user) {
+        observer.next({
+          //nameError: 'Пользователь с таким именем уже существует'
+          'nameError': true
+        });
+        observer.complete();
+      }
+
+      /** Если пользователя нет, то валидация успешна */
+      observer.next(undefined);
+      observer.complete();
+    });
+  }
+}

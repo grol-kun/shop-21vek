@@ -292,6 +292,37 @@ a:hover {
 /******************************************************************************/
 /*GLOBAL*/
 /******************************************************************************/
+.input-error-message {
+  line-height: 18px;
+  font-size: 12px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-top: 4px;
+  max-height: 36px;
+  overflow: hidden;
+
+  .input-error-message__icon-wrapper {
+    color: $pink-600;
+    width: 12px;
+    height: 14px;
+    margin-right: 4px;
+    vertical-align: middle;
+    flex: 0 0 auto;
+
+    img {
+      color: red;
+      vertical-align: unset;
+    }
+  }
+
+  .input-error-message__message {
+    min-width: 0;
+    flex: 1 1 auto;
+    //color: $main-dark;
+  }
+}
+
 .styles_reactButton {
   display: inline-block;
   position: relative;

@@ -146,6 +146,10 @@
                   width: 100%;
                 }
               }
+              .styles_error {
+                margin-bottom: -4px;
+                margin-top: -14px;
+              }
             }
 
             .styles_link {
@@ -162,6 +166,15 @@
               font-weight: 400;
               color: #07c;
               cursor: pointer;
+
+              &.enter_link_register {
+                position: relative !important;
+                font-size: 12px;
+                line-height: normal;
+                &:hover {
+                  color: #e52e6b;
+                }
+              }
             }
 
             .style_agreementTextWrapper {
