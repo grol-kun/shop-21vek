@@ -70,7 +70,7 @@ export class SignupComponent implements OnInit {
     this.showSubContent = 2;
 
     this.registrForm = this.fb.group({
-      emailReg: ['', [Validators.required, /* this.checkMailFormat */], this.checkIsMailAvailable.bind(this)]
+      emailReg: ['', [Validators.required, this.checkMailFormat], [this.checkIsMailAvailable.bind(this)]]
     });
 
   }

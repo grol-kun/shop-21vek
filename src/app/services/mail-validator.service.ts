@@ -11,7 +11,6 @@ export class MailValidatorService {
     /** Пользователи, зарегистрированные в системе */
     this.http.get('users')
       .subscribe((res) => this.users = res)
-    console.log(this.users); ///////////////////////////
   }
 
   /** Запрос валидации */
