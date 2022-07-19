@@ -17,9 +17,8 @@ export class SignupComponent implements OnInit {
   registrForm!: FormGroup;
   showSubContent: number = 1;
   hide = true;
-  private user!: any;
   token: string = '';
-  @ViewChild('regForm') regForm!: ElementRef;
+  //@ViewChild('regForm') regForm!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -30,16 +29,20 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-      email: ['', [Validators.required, this.checkMailFormat]],
+      email: ['', [Validators.required, this.checkMailFormat], this.checkIsMailExist.bind(this)],
       password: ['', [Validators.required,
       Validators.minLength(1)]]
     });
+    //console.log('INIT');
+
   }
 
   public onAuthSubmit() {
+    if (this.isSubmited) return;
+    console.log(this.signupForm);
+    this.isSubmited = true;
     this.signupForm.get('email')?.markAsTouched();
     this.signupForm.get('password')?.markAsTouched();
-    console.log(this.signupForm);
     if (this.signupForm.valid) {
       this.authService.login({
         login: this.signupForm.value.email,
@@ -56,6 +59,9 @@ export class SignupComponent implements OnInit {
         })
       this.signupForm.reset();
     }
+    setTimeout(() => this.isSubmited = false, 1000);
+    console.log('конец');
+
   }
 
   public showRegistrForm() {
@@ -68,8 +74,10 @@ export class SignupComponent implements OnInit {
   }
 
   public onRegSubmit() {
-    this.registrForm.get('emailReg')?.markAsTouched();
+    if (this.isSubmited) return;
     console.log(this.registrForm);
+    this.isSubmited = true;
+    this.registrForm.get('emailReg')?.markAsTouched();
     if (this.registrForm.valid) {
       this.authService.register({
         firstName: 'Пользователь',
@@ -91,6 +99,8 @@ export class SignupComponent implements OnInit {
       this.showSubContent = 3;
     }
     //this.cdr.detectChanges();
+    setTimeout(() => this.isSubmited = false, 1000);
+    console.log('конец');
   }
 
   public checkMailFormat(contol: FormControl) {
@@ -106,6 +116,10 @@ export class SignupComponent implements OnInit {
 
   public checkIsMailAvailable(control: FormControl): Observable<ValidationErrors> {
     return this.mailValidationService.validateMail(control.value);
+  }
+
+  public checkIsMailExist(control: FormControl): Observable<ValidationErrors> {
+    return this.mailValidationService.existValidate(control.value);
   }
 
   public generatePassword(): string {

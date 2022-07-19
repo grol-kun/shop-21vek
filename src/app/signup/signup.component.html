@@ -62,12 +62,19 @@
                 </svg>
               </span>
 
-              <span *ngIf="signupForm.get('email')?.errors?.['required']; else elseBlock"
+              <span *ngIf="signupForm.get('email')?.errors?.['required']"
                 class="input-error-message__message">Электронная почта не указана</span>
 
-              <ng-template #elseBlock>
-                <span class="input-error-message__message">Неправильный формат электронной почты</span>
-              </ng-template>
+              <span *ngIf="signupForm.get('email')?.errors?.['mailFormatError']
+                && !signupForm.get('email')?.errors?.['required']
+                && !signupForm.get('email')?.errors?.['existError']"
+                class="input-error-message__message">Неправильный формат электронной почты</span>
+
+              <span *ngIf="signupForm.get('email')?.errors?.['existError']" class="input-error-message__message">Нет такого аккаунта.
+                <button class="styles_reactButton styles_link enter_link_register" type="button"
+                  (click)="showSubContent=2">Зарегистрироваться?
+                </button>
+              </span>
 
             </div>
           </div>
@@ -172,8 +179,8 @@
 
             <span *ngIf="registrForm.get('emailReg')?.errors?.['mailFormatError']
             && !registrForm.get('emailReg')?.errors?.['required']
-            && !registrForm.get('emailReg')?.errors?.['nameError']"
-              class="input-error-message__message">Неправильный формат электронной почты</span>
+            && !registrForm.get('emailReg')?.errors?.['nameError']" class="input-error-message__message">Неправильный
+              формат электронной почты</span>
 
             <span *ngIf="registrForm.get('emailReg')?.errors?.['nameError']"
               class="input-error-message__message">Аккаунт зарегистрирован.

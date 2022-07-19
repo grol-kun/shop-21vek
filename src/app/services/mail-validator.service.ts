@@ -33,4 +33,25 @@ export class MailValidatorService {
       observer.complete();
     });
   }
+
+  /** Запрос валидации */
+  existValidate(userMail: string): Observable<ValidationErrors> {
+    console.log(this.users);
+    /** Эмуляция запроса на сервер */
+    return new Observable<ValidationErrors>(observer => {
+      const user = this.users.find(user => user.login === userMail);
+      /** если пользователь есть в массиве, то возвращаем ошибку */
+      if (!user) {
+        observer.next({
+          //nameError: 'Пользователь с таким именем уже существует'
+          'existError': true
+        });
+        observer.complete();
+      }
+
+      /** Если пользователя нет, то валидация успешна */
+      observer.next(undefined);
+      observer.complete();
+    });
+  }
 }
