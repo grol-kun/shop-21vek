@@ -1,18 +1,14 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { User } from '../user';
 import { FormGroup, Validators, FormBuilder, FormControl, ValidationErrors } from '@angular/forms';
-import { LoginService } from '../services/login.service';
-import { RegisterService } from '../services/register.service';
-import { HttpService } from '../services/http.service';
-import { Observable, of, tap } from 'rxjs';
+//import { HttpService } from '../../../tmp/http.service';
+import { Observable } from 'rxjs';
 import { MailValidatorService } from '../services/mail-validator.service';
-
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
-  providers: [LoginService, RegisterService, HttpService, MailValidatorService],
+  providers: [MailValidatorService, AuthService],
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignupComponent implements OnInit {
@@ -21,17 +17,15 @@ export class SignupComponent implements OnInit {
   registrForm!: FormGroup;
   showSubContent: number = 1;
   hide = true;
-  private user!: User;
+  private user!: any;
   token: string = '';
   @ViewChild('regForm') regForm!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
-    private loginService: LoginService,
     private cdr: ChangeDetectorRef,
-    private registerService: RegisterService,
-    private http: HttpService,
-    private mailValidationService: MailValidatorService
+    private mailValidationService: MailValidatorService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -40,30 +34,28 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required,
       Validators.minLength(1)]]
     });
-
   }
-
 
   public onAuthSubmit() {
     this.signupForm.get('email')?.markAsTouched();
     this.signupForm.get('password')?.markAsTouched();
-    /*     if (this.signupForm.valid) {
-          this.loginService.login({
-            login: this.signupForm.value.email,
-            password: this.signupForm.value.password,
-          })
-            .subscribe((res) => {
-              this.token = res.token;
-              console.log(this.token);
-              this.user.token = this.token;
-              this.cdr.detectChanges();
-              //this.cdr.markForCheck();
-            });
-        } else {
-          console.log('Форма не валидна');
-        } */
-    //this.signupForm.reset();
     console.log(this.signupForm);
+    if (this.signupForm.valid) {
+      this.authService.login({
+        login: this.signupForm.value.email,
+        password: this.signupForm.value.password,
+      })
+        .subscribe({
+          next: (data) => {
+            this.authService.setToken(data.token)
+            this.authService.getuserInfo()
+            //this.router.navigate(['/']);
+          },
+          error: (err) => console.error(err),
+          complete: () => console.info('complete')
+        })
+      this.signupForm.reset();
+    }
   }
 
   public showRegistrForm() {
@@ -77,42 +69,28 @@ export class SignupComponent implements OnInit {
 
   public onRegSubmit() {
     this.registrForm.get('emailReg')?.markAsTouched();
-
-
     console.log(this.registrForm);
-
-
-    /*     if (this.registrForm.valid) {
-          this.user = {
-            login: this.registrForm.value.email,
-            password: this.generatePassword(),
-            firstName: '',
-            lastName: '',
-            token: '',
-            cart: [],
-            favorites: [],
-            orders: []
-          }
-          this.registerService.register({
-            firstName: 'Гость',
-            lastName: '',
-            login: this.registrForm.value.emailReg,
-            password: this.generatePassword()
-          })
-            .subscribe((res) => {
-              //this.token = res.token;
-              console.log(res);
-              console.log('Должно отправиться письмо на @mail (пока не реализовано)');
-
-              //this.user.token = this.token;
-              //this.cdr.detectChanges();
-              //this.cdr.markForCheck();
-            })
-            .unsubscribe();
-
-          this.registrForm.reset();
-          this.showSubContent = 3;
-        } */
+    if (this.registrForm.valid) {
+      this.authService.register({
+        firstName: 'Пользователь',
+        lastName: '',
+        login: this.registrForm.value.emailReg,
+        password: this.generatePassword()
+      })
+        .subscribe({
+          next: (data) => {
+            console.log(data.token);
+            this.authService.setToken(data.token)
+            this.authService.getuserInfo()
+            //this.router.navigate(['/']);
+          },
+          error: (err) => console.error(err),
+          complete: () => console.info('complete')
+        })
+      this.registrForm.reset();
+      this.showSubContent = 3;
+    }
+    //this.cdr.detectChanges();
   }
 
   public checkMailFormat(contol: FormControl) {

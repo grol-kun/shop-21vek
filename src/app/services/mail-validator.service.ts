@@ -5,7 +5,7 @@ import { User } from '../user';
 import { HttpService } from './http.service';
 @Injectable()
 export class MailValidatorService {
-  private users!: User[];
+  private users!: any[];
 
   constructor(private http: HttpService) {
     /** Пользователи, зарегистрированные в системе */
@@ -15,6 +15,7 @@ export class MailValidatorService {
 
   /** Запрос валидации */
   validateMail(userMail: string): Observable<ValidationErrors> {
+    console.log(this.users);
     /** Эмуляция запроса на сервер */
     return new Observable<ValidationErrors>(observer => {
       const user = this.users.find(user => user.login === userMail);

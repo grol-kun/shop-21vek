@@ -25,7 +25,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -59,10 +59,13 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatButtonModule
   ],
-  providers: [HttpService, {
-    provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue:
-      { hasBackdrop: true, panelClass: "my-dialog-class" }
-  }],
+  providers: [
+    HttpService,
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: { hasBackdrop: true, panelClass: "my-dialog-class" }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
