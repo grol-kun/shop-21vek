@@ -27,7 +27,7 @@ import { NavBarComponent } from './header/nav-bar/nav-bar.component';
 import { SearchComponent } from './header/navigation/search/search.component';
 import { AccountMenuComponent } from './header/navigation/account-menu/account-menu.component';
 import { TokenInterseptorService } from './token-interseptor.service';
-
+import { CategoryServise } from './services/category.service'
 
 
 
@@ -63,6 +63,7 @@ import { TokenInterseptorService } from './token-interseptor.service';
   ],
   providers: [
     HttpService,
+    CategoryServise,
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS,
       useValue: { hasBackdrop: true, panelClass: "my-dialog-class" }

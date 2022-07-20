@@ -20,14 +20,14 @@ export class TokenInterseptorService implements HttpInterceptor {
         }
       });
     }
-    return next.handle(req).pipe(
+    return next.handle(req)/* .pipe(
       catchError(
         (error: HttpErrorResponse) =>
           this.handleAuthError(error))
-    )
+    ) */
   }
 
-  private handleAuthError(error: HttpErrorResponse): Observable<any> {
+/*   private handleAuthError(error: HttpErrorResponse): Observable<any> {
     if (error.status === 401) {
       console.log('Ошибка Авторизации [401]');
 
@@ -38,5 +38,5 @@ export class TokenInterseptorService implements HttpInterceptor {
       });
     }
     return throwError(error)
-  }
+  } */
 }
