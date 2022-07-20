@@ -8,9 +8,9 @@ import { ProfileInfoComponent } from './profile/profile-info/profile-info.compon
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'order', component: OrderComponent },
-  { path: 'profile/info',canActivate: [AuthGuard], component: ProfileInfoComponent },
-  { path: '404', component: MainPageComponent }, //сделать компонент для 404 или не сделать... )0
-  { path: '**', redirectTo: '' },
+  { path: 'profile/info', canActivate: [AuthGuard], component: ProfileInfoComponent },
+  /*   { path: '404', component: MainPageComponent }, //сделать компонент для 404 или не сделать... )0
+    { path: '**', redirectTo: '' }, */
 ];
 
 @NgModule({

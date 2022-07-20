@@ -12,7 +12,5 @@ export class CategoryServise {
     this.httpClient.get<Category[]>(baseUrl + '/categories').subscribe(data => {
       this.categories.next(data)
     })
-    console.log('Внутри fetchCategories');
   }
-
 }
