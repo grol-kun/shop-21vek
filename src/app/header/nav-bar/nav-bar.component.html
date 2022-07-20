@@ -17,6 +17,12 @@
       </div>
 
       <ul class="styles_promoItems">
+        <li *ngFor="let item of categories | async" class="styles_promoItem">
+          <a [routerLink]="['/categories/',item.id]" data-index="1">{{item.name}}</a>
+        </li>
+      </ul>
+
+      <!--       <ul class="styles_promoItems">
         <li class="styles_promoItem"><a href="https://www.21vek.by/tramps/" data-index="1">Батуты</a></li>
         <li class="styles_promoItem"><a href="https://www.21vek.by/pools/" data-index="2">Бассейны</a></li>
         <li class="styles_promoItem"><a href="https://www.21vek.by/bikes/" data-index="3">Велосипеды</a></li>
@@ -27,7 +33,7 @@
         <li class="styles_promoItem"><a href="https://www.21vek.by/mattresses/" data-index="8">Матрасы</a></li>
         <li class="styles_promoItem"><a href="https://www.21vek.by/doors/" data-index="9">Входные двери</a></li>
         <li class="styles_promoItem"><a href="https://www.21vek.by/boilers/" data-index="10">Котлы</a></li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </div>
