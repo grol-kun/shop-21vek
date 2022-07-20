@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private cdr: ChangeDetectorRef,
     private mailValidationService: MailValidatorService,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -52,7 +52,6 @@ export class SignupComponent implements OnInit {
           next: (data) => {
             this.authService.setToken(data.token)
             this.authService.getuserInfo()
-            //this.router.navigate(['/']);
           },
           error: (err) => console.error(err),
           complete: () => console.info('complete')
@@ -90,7 +89,6 @@ export class SignupComponent implements OnInit {
             console.log(data.token);
             this.authService.setToken(data.token)
             this.authService.getuserInfo()
-            //this.router.navigate(['/']);
           },
           error: (err) => console.error(err),
           complete: () => console.info('complete')
