@@ -3,7 +3,7 @@
 
     <!-- логотип -->
     <div class="logotype">
-      <a href="/" class="logotypeImg" title="На главную страницу">
+      <a routerLink="" class="logotypeImg" title="На главную страницу">
         <img src="../../../../assets/icons/logo.svg" alt="Онлайн-гипермаркет 21vek.by">
       </a>
       <span class="logotypeText">Онлайн-гипермаркет 21vek.by</span>
@@ -42,8 +42,9 @@
 
 
     <!-- корзина -->
+    <!-- href="/order/?1657047192313046&amp;checkTab=true" -->
     <div class="headerCart">
-      <a class="headerCartBox headerCartBoxEmpty" href="/order/?1657047192313046&amp;checkTab=true" rel="nofollow">
+      <a class="headerCartBox headerCartBoxEmpty" routerLink="order" rel="nofollow">
         <span class="headerCartIcon">
           <div class="" role="presentation"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16"
               viewBox="0 0 17 16" fill="currentColor">

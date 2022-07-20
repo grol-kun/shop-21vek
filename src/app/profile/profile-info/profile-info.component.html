@@ -1,0 +1,7 @@
+<div class="profile_info_wrapper">
+  <h2>Имя: {{user?.firstName}}</h2>
+  <h2>Фамилия: {{user?.lastName}}</h2>
+  <h2>Заказы: {{user?.cart}}</h2>
+  <h2>Избранное: {{user?.favorites}}</h2>
+  <button (click)="logout()">[Выйти из аккаунта]</button>
+</div>

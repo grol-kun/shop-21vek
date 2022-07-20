@@ -9,7 +9,7 @@ export class MailValidatorService {
 
   constructor(private http: HttpService) {
     /** Пользователи, зарегистрированные в системе */
-    this.http.get('users')
+    this.http.get('/users')
       .subscribe((res) => this.users = res)
   }
 

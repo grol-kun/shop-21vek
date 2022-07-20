@@ -181,6 +181,9 @@ a:hover {
       width: 48px;
       height: 48px;
       background-image: url(../app/../assets/icons/user-default-logo.svg);
+      &:hover{
+        cursor: pointer;
+      }
     }
 
     .userToolsBtn {

@@ -1,15 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Observable, map, debounceTime, distinctUntilChanged, filter, of, switchMap, catchError } from 'rxjs';
 import { Good } from '../good';
-import { HttpService } from './http.service';
+import { baseUrl } from '../url';
+//import { HttpService } from './http.service';
 
 @Injectable()
 
 export class GoodsSearchService {
 
-  constructor(private httpService: HttpService) { }
+  constructor(
+    //private httpService: HttpService,
+    private httpClient: HttpClient
+  ) { }
 
-  public getGoodsByNames(key: string): Observable<Good[]> {
+  public getGoodsByNames(key: string): Observable<any> {
     //  return of(key).pipe(
     //     debounceTime(700),
     //     distinctUntilChanged(),
@@ -21,8 +26,12 @@ export class GoodsSearchService {
     //     })
     //   )
 
-    return (this.httpService.get(`goods/search?text=${key}`)).pipe(
+    /* return (this.httpService.get(`goods/search?text=${key}`)).pipe(
+      catchError(err => of([]))
+    ) */
+    return (this.httpClient.get(`${baseUrl}/goods/search?text=${key}`)).pipe(
       catchError(err => of([]))
     )
   }
+
 }

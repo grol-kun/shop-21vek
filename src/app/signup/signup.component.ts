@@ -1,23 +1,27 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl, ValidationErrors } from '@angular/forms';
 //import { HttpService } from '../../../tmp/http.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MailValidatorService } from '../services/mail-validator.service';
 import { AuthService } from '../services/auth.service';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-auth',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
   providers: [MailValidatorService, AuthService],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, OnDestroy {
   isSubmited = false;
   signupForm!: FormGroup;
   registrForm!: FormGroup;
   showSubContent: number = 1;
   hide = true;
   token: string = '';
+  subscription1$!: Subscription;
+  subscription2$!: Subscription;
+  allSubs!: Subscription[];
   //@ViewChild('regForm') regForm!: ElementRef;
 
   constructor(
@@ -25,6 +29,7 @@ export class SignupComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private mailValidationService: MailValidatorService,
     private authService: AuthService,
+    public dialogRef: MatDialogRef<SignupComponent>,
   ) { }
 
   ngOnInit() {
@@ -33,18 +38,26 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required,
       Validators.minLength(1)]]
     });
-    //console.log('INIT');
+  }
 
+  ngOnDestroy(): void {
+    if (this.subscription1$) {
+      console.log(this.subscription1$);
+      this.subscription1$.unsubscribe();
+    }
+    if (this.subscription2$) {
+      console.log(this.subscription2$);
+      this.subscription2$.unsubscribe();
+    }
   }
 
   public onAuthSubmit() {
     if (this.isSubmited) return;
-    console.log(this.signupForm);
     this.isSubmited = true;
     this.signupForm.get('email')?.markAsTouched();
     this.signupForm.get('password')?.markAsTouched();
     if (this.signupForm.valid) {
-      this.authService.login({
+      this.subscription1$ = this.authService.login({
         login: this.signupForm.value.email,
         password: this.signupForm.value.password,
       })
@@ -52,6 +65,7 @@ export class SignupComponent implements OnInit {
           next: (data) => {
             this.authService.setToken(data.token)
             this.authService.getuserInfo()
+            this.dialogRef.close();
           },
           error: (err) => console.error(err),
           complete: () => console.info('complete')
@@ -59,8 +73,6 @@ export class SignupComponent implements OnInit {
       this.signupForm.reset();
     }
     setTimeout(() => this.isSubmited = false, 1000);
-    console.log('конец');
-
   }
 
   public showRegistrForm() {
@@ -74,11 +86,10 @@ export class SignupComponent implements OnInit {
 
   public onRegSubmit() {
     if (this.isSubmited) return;
-    console.log(this.registrForm);
     this.isSubmited = true;
     this.registrForm.get('emailReg')?.markAsTouched();
     if (this.registrForm.valid) {
-      this.authService.register({
+      this.subscription2$ = this.authService.register({
         firstName: 'Пользователь',
         lastName: '',
         login: this.registrForm.value.emailReg,
@@ -98,7 +109,6 @@ export class SignupComponent implements OnInit {
     }
     //this.cdr.detectChanges();
     setTimeout(() => this.isSubmited = false, 1000);
-    console.log('конец');
   }
 
   public checkMailFormat(contol: FormControl) {

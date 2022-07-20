@@ -12,7 +12,8 @@ interface Registerinfo extends loginInfo {
   providedIn: 'root',
 })
 export class AuthService {
-  userInfo: Subject<User | null> = new Subject()
+  userInfo: Subject<User | null> = new Subject();
+  //userInfo: BehaviorSubject<User | null> = new BehaviorSubject(null);
   constructor(private httpClient: HttpClient) { }
   getuserInfo(): void {
     this.httpClient.get<User>(`${baseUrl}/users/userInfo`).subscribe(data => {

@@ -1,4 +1,4 @@
-export interface details {
+export interface Details {
   "name": string,
   "address": string,
   "phone": string,
@@ -19,7 +19,7 @@ export interface User {
           "amount": number
         }
       ],
-      "details": details,
+      "details": Details,
       "id": string
     }
   ]

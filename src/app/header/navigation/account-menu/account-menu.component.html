@@ -31,7 +31,7 @@
             <div id="userToolsDropDown" class="style_portal">
               <div class="styles_list styles_enterDone">
                 <div class="userToolsAuth">
-                  <div class="userToolsImage"></div>
+                  <div class="userToolsImage" routerLink="/profile/info"></div>
                   <button type="button" class="userToolsBtn" title="Вход" (click)="openDialog()">
                     <span>Войти</span>
                   </button>
@@ -40,7 +40,7 @@
                   <div class="ProfileScreen_content">
 
                     <div class="ProfileItem_item">
-                      <a href="/order/" tabindex="1" class="ProfileItem_itemCommon">
+                      <a routerLink="order" tabindex="1" class="ProfileItem_itemCommon">
                         <svg class="ProfileItem_icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" clip-rule="evenodd"

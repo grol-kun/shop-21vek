@@ -1,0 +1,11 @@
+*{
+  text-align: center;
+  margin: 0 auto;
+}
+.profile_info_wrapper{
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
