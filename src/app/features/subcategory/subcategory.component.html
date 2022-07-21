@@ -1,7 +1,7 @@
 <div class="l-content-wrapper">
   <div class="l-content l-base" id="content">
     <div class="b-content">
-      <!-- START::CONTENT-->
+
       <ul class="b-breadcrumbs">
         <li class="breadcrumbs__item cr-breadcrumbs__first"><a href="https://www.21vek.by/" class="breadcrumbs__link"
             title="На главную">Главная</a></li>
@@ -10,7 +10,7 @@
         <li class="breadcrumbs__item"><a href="https://www.21vek.by/picnic_items/" class="breadcrumbs__link"
             title="К разделу «Отдых и пикник»">Отдых и пикник</a></li>
       </ul>
-      <h1 class="content__header cr-category_header">Бассейны</h1>
+      <h1 class="content__header cr-category_header">{{subCategoryId}}</h1>
 
 
       <div class="b-tools  g-box_lseparator">
@@ -42,74 +42,77 @@
           <div class="cr-catalog_top_paging ">
 
             <span class="cr-paging_nav">
-              Страница 1/5 <a rel="next" href="https://www.21vek.by/pools/page:2/" name="2" class="j-load_page">&gt;</a>
+              Страница 1/5
+              <a rel="next" href="https://www.21vek.by/pools/page:2/" name="2" class="j-load_page">&gt;</a>
             </span>
+
           </div>
 
-          <li class="result__item cr-result__full  g-box_lseparator g-box_lseparator_catalog">
+          <li *ngFor="let good of goods | async"
+            class="result__item cr-result__full  g-box_lseparator g-box_lseparator_catalog">
+
             <dl>
               <div class="catalog-result__item_data">
+
                 <dt class="result__root">
+
                   <div class="catalog-result__item_meta">
-                    <span class="g-code">код 6.255.926</span> <span class="g-catalog-status cr-status__in">В
-                      наличии</span>
+                    <span class="g-code">код {{good.id}}</span>
+                    <span class="g-catalog-status cr-status__in">В наличии {{good.availableAmount}}шт</span>
                   </div>
-                  <a href="https://www.21vek.by/pools/easyset28106np_intex.html" class="result__link j-ga_track"
-                    data-ga_action="GoToItem" data-ga_on="click" data-ga_label="catalog" data-ga_category="Navigation">
+                  <a [routerLink]="['/subcategories/',good.id]" class="result__link j-ga_track">
                     <span class="result__img">
                       <div class="g-label__smallbox">
                       </div>
-                      <img
-                        src="https://cdn21vek.by/img/galleries/6255/926/preview/easyset28106np_intex_601b970f50b2e.jpeg"
-                        class="" alt="Надувной бассейн Intex Easy Set / 28106NP (244x61) - ">
+                      <img [src]="good.imageUrls['0']" class="" [alt]="good.name">
                     </span>
-                    <span class="result__name">Надувной бассейн Intex Easy Set / 28106NP (244x61)</span>
+                    <span class="result__name">{{good.name}}</span>
                   </a>
                   <div class="catalog-labels">
                   </div>
                 </dt>
+
                 <dd class="result__desc">
                   <div class="result__attrs">
                     <table>
                       <tbody>
                         <tr>
-                          <td class="result__attr_var  cr-result__attr_odd">Тип бассейна</td>
-                          <td class="result__attr_val  cr-result__attr_odd">надувной бассейн</td>
+                          <td class="result__attr_var  cr-result__attr_odd">ID товара</td>
+                          <td class="result__attr_val  cr-result__attr_odd">{{good.id}}</td>
                         </tr>
                         <tr>
-                          <td class="result__attr_var ">Диаметр</td>
-                          <td class="result__attr_val ">244&nbsp;см</td>
+                          <td class="result__attr_var ">Имя товара</td>
+                          <td class="result__attr_val ">{{good.name}}</td>
                         </tr>
                         <tr>
-                          <td class="result__attr_var  cr-result__attr_odd">Объем</td>
-                          <td class="result__attr_val  cr-result__attr_odd">1942&nbsp;л</td>
+                          <td class="result__attr_var  cr-result__attr_odd">В наличии</td>
+                          <td class="result__attr_val  cr-result__attr_odd">{{good.availableAmount}}</td>
                         </tr>
                         <tr>
-                          <td class="result__attr_var ">Возраст</td>
-                          <td class="result__attr_val ">6+</td>
+                          <td class="result__attr_var ">Рейтинг</td>
+                          <td class="result__attr_val ">{{good.rating}}</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </dd>
-              </div>
-              <div class="catalog-result__item_tools result__tools">
-                <span class=" g-price result__price cr-price__in"><span data-code="6255926"
-                    data-name="Надувной бассейн Intex Easy Set / 28106NP (244x61)" data-price="209.00"
-                    data-producer_name="Intex" data-category="Дом и сад / Отдых и пикник / Бассейны"
-                    data-category_id="154" data-status="in" data-special_offer="no" data-is_reduction="0" data-labels=""
-                    content="209.00" data-multiple="1"
-                    class="g-item-data j-item-data j-item-data6255926 j-item-data-real6255926 ">209,00</span><span
-                    class="g-price__unit result__priceunit">р.</span></span>
-                <span class="result__tools-item result__item_markdown">
 
+              </div>
+
+              <div class="catalog-result__item_tools result__tools">
+
+                <span class=" g-price result__price cr-price__in">
+                  <span
+                    class="g-item-data j-item-data j-item-data6255926 j-item-data-real6255926 ">{{good.price}}</span>
+                  <span class="g-price__unit result__priceunit">р.</span>
                 </span>
-                <span class="b-reviews-rate-catalog result__tools-item"><span
-                    class="reviews-rate-catalog cr-reviews-rate" style="width:100%;"></span></span>
-                <form class="j-to_basket" method="post" action="/to_basket/?item=6255926&amp;special=0&amp;price=209.00"
-                  data-code="6255926_0"><button class="g-button g-buybtn result__buybtn cr-buybtn__in j-ga_track"
-                    data-ga_action="add_to_cart" data-ga_on="click" data-ga_label="result_buybtn"
-                    data-ga_category="Ordering">В корзину</button>
+
+                <span class="b-reviews-rate-catalog result__tools-item">
+                  <span class="reviews-rate-catalog cr-reviews-rate"></span>
+                </span>
+
+                <form class="j-to_basket" method="post" action="/to_basket/?item=6255926&amp;special=0&amp;price=209.00">
+                  <button class="g-button g-buybtn result__buybtn cr-buybtn__in j-ga_track">В корзину</button>
                 </form>
 
               </div>
@@ -122,14 +125,13 @@
 
         <div class="b-tools cr-tools_paginator g-box_lseparator" id="j-paginator">
           <input type="hidden" class="j-reload-page" data-link="https://www.21vek.by/pools/">
-          <div class="cr-paginator_page_list">
-            Показано 1-60 из 290 </div>
-          <span class="cr-curent cr-paging_link" name="1">1</span><a href="https://www.21vek.by/pools/page:2/"
-            class="j-load_page cr-paging_link" name="2">2</a><a href="https://www.21vek.by/pools/page:3/"
-            class="j-load_page cr-paging_link" name="3">3</a><a href="https://www.21vek.by/pools/page:4/"
-            class="j-load_page cr-paging_link" name="4">4</a><a href="https://www.21vek.by/pools/page:5/"
-            class="j-load_page cr-paging_link" name="5">5</a><a rel="next" href="https://www.21vek.by/pools/page:2/"
-            name="2" class="j-load_page cr-paging_link">&gt;</a>
+          <div class="cr-paginator_page_list"> Показано 1-60 из 290 </div>
+          <span class="cr-curent cr-paging_link" name="1">1</span>
+          <a href="https://www.21vek.by/pools/page:2/" class="j-load_page cr-paging_link" name="2">2</a>
+          <a href="https://www.21vek.by/pools/page:3/" class="j-load_page cr-paging_link" name="3">3</a>
+          <a href="https://www.21vek.by/pools/page:4/" class="j-load_page cr-paging_link" name="4">4</a>
+          <a href="https://www.21vek.by/pools/page:5/" class="j-load_page cr-paging_link" name="5">5</a>
+          <a rel="next" href="https://www.21vek.by/pools/page:2/" name="2" class="j-load_page cr-paging_link">&gt;</a>
         </div>
       </div>
 
@@ -180,33 +182,15 @@
         Могилев, Гродно и Витебск, а также в любую точку Беларуси!
       </div>
 
-    </div><!-- END::CONTENT-->
+    </div>
 
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <p>
+<p>
   {{categotyId | async }}
 </p>
 
-<ul>
+<!-- <ul>
   <li *ngFor="let good of goods | async" class="styles_promoItem">
     <a [routerLink]="['/subcategories/',good.id]">Название {{good.name}}</a>
     <img [src]="good.imageUrls['0']">
