@@ -20,7 +20,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     //this.categoryService.fetchCategories();
-    this.categories = this.subCategoryService.fetchCategories();
+    this.categories = this.subCategoryService.fetchSubCategories();
   }
 
 

@@ -28,6 +28,8 @@ import { SearchComponent } from './header/navigation/search/search.component';
 import { AccountMenuComponent } from './header/navigation/account-menu/account-menu.component';
 import { TokenInterseptorService } from './token-interseptor.service';
 import { CategoryServise } from './services/category.service'
+//
+import { SubcategoryComponent } from './/features/subcategory/subcategory.component'
 
 
 
@@ -44,7 +46,8 @@ import { CategoryServise } from './services/category.service'
     NavigationComponent,
     NavBarComponent,
     SearchComponent,
-    AccountMenuComponent
+    AccountMenuComponent,
+    SubcategoryComponent
   ],
   imports: [
     BrowserModule,

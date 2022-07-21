@@ -1,3 +1,10 @@
 <p>
-  subcategory works!
+  {{categotyId | async }}
 </p>
+
+<ul>
+  <li *ngFor="let good of goods | async" class="styles_promoItem">
+    <a [routerLink]="['/subcategories/',good.id]">{{good.name}}</a>
+    <h3>{{good.price}}</h3>
+  </li>
+</ul>
