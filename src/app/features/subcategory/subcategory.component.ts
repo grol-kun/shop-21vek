@@ -7,7 +7,7 @@ import { SubCategoryService } from 'src/app/services/subCategory.service';
 @Component({
   selector: 'app-subcategory',
   templateUrl: './subcategory.component.html',
-  styleUrls: ['./subcategory.component.css']
+  styleUrls: ['./subcategory.component.scss']
 })
 export class SubcategoryComponent implements OnInit {
   categotyId!: Observable<string>;
@@ -30,8 +30,6 @@ export class SubcategoryComponent implements OnInit {
         this.goods = this.subCategoryService.getGoods(this.categotyStringId, this.subCategoryId, 0, 10);
       });
     })
-
-
   }
 
 }

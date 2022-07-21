@@ -6,7 +6,7 @@ import { User } from '../../../interfaces/user';
 @Component({
   selector: 'app-profile-info',
   templateUrl: './profile-info.component.html',
-  styleUrls: ['./profile-info.component.css']
+  styleUrls: ['./profile-info.component.scss']
 })
 export class ProfileInfoComponent implements OnInit {
 
