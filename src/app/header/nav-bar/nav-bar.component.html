@@ -18,7 +18,7 @@
 
       <ul class="styles_promoItems">
         <li *ngFor="let item of categories | async" class="styles_promoItem">
-          <a [routerLink]="['/categories/',item.id]">{{item.name}}</a>
+          <a [routerLink]="['/subcategories/',item.id]">{{item.name}}</a>
         </li>
       </ul>
 

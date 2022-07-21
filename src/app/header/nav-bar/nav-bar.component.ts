@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SubCategory } from 'src/app/interfaces/subCategory';
 import { CategoryServise } from 'src/app/services/category.service';
 import { SubCategoryService } from 'src/app/services/subCategory.service';
 
@@ -9,6 +11,8 @@ import { SubCategoryService } from 'src/app/services/subCategory.service';
 })
 export class NavBarComponent implements OnInit {
 
+  categories!: Observable<SubCategory[]>
+
   constructor(
     //private categoryService: CategoryServise,
     private subCategoryService: SubCategoryService
@@ -16,16 +20,12 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     //this.categoryService.fetchCategories();
-    this.subCategoryService.fetchCategories();
+    this.categories = this.subCategoryService.fetchCategories();
   }
 
 
-  get categories() {
-    return this.subCategoryService.categories;
-  }
-
-  /*     get categories() {
-        return this.categoryService.categories;
-      } */
+  /* get categories() {
+    return this.categoryService.categories;
+  } */
 
 }

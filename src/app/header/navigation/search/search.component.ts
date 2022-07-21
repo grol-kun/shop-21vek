@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import { GoodsSearchService } from 'src/app/services/goods-search.service';
 import { MatAutocompleteModule, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS } from '@angular/material/autocomplete';
-import { Good } from 'src/app/good';
+import { Good } from '../../../interfaces/good';
 
 @Component({
   selector: 'app-search',

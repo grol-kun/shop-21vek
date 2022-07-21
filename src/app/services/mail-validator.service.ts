@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { User } from '../user';
 import { HttpService } from './http.service';
 @Injectable()
 export class MailValidatorService {

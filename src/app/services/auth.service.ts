@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { baseUrl, TokenName } from '../url';
-import { User } from '../user';
+import { User } from '../interfaces/user';
 interface loginInfo { login: string; password: string }
 interface Registerinfo extends loginInfo {
   firstName: string,

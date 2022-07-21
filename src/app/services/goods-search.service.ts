@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Observable, map, debounceTime, distinctUntilChanged, filter, of, switchMap, catchError } from 'rxjs';
-import { Good } from '../good';
+import { Good } from '../interfaces/good';
 import { baseUrl } from '../url';
 //import { HttpService } from './http.service';
 
