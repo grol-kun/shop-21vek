@@ -1,0 +1,369 @@
+@import "../../styles/variables.scss";
+
+.react_footer {
+  -webkit-font-smoothing: antialiased;
+  min-width: 1090px;
+  overflow: hidden;
+  background-color: $footer-background;
+
+  .subscription-block-react {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    padding: 0 2.2%;
+    background-color: $subscription-block-react-bg-color;
+    left: calc(50vw - 50%);
+    left: calc(var(inherit, calc(100vw - 100%)) / 2);
+    font-family: $base-font-family;
+    color: $footer-base-color;
+    border-bottom: 1px solid $footer-base-border-color;
+
+    .subscription-block-react__icon {
+      margin-right: 8px;
+      color: $subscription-block-icon-color;
+    }
+
+    .subscription-block-react__content {
+      font-size: 13px;
+      line-height: 19px;
+      max-width: 300px;
+    }
+
+    .react-subscription-form {
+      margin-left: 30px;
+      width: 346px;
+      display: flex;
+      flex-flow: row nowrap;
+
+      .react-subscription-form__input-block {
+        flex: 1 1 auto;
+        position: relative;
+        font-family: Arial, sans-serif;
+
+        .react-subscription-form__input-container {
+          height: 40px;
+          box-shadow: 0 2px 4px rgb(23 35 38 / 7%);
+          border: none;
+          position: relative;
+          overflow: hidden;
+          box-sizing: border-box;
+          background-color: #fff;
+          border-radius: 2px;
+
+          .react-subscription-form__input {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 10px 12px 12px;
+            border: 1px solid rgba(220, 221, 224, 0.6);
+            border-radius: 2px;
+            outline: none;
+            font-size: 15px;
+            line-height: 22px;
+            font-family: Arial, sans-serif;
+            color: #1a1a1a;
+            background: transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-size: 14px;
+            line-height: 20px;
+            padding-top: 9px;
+            padding-bottom: 11px;
+            border: none;
+          }
+        }
+      }
+
+      .react-subscription-form__submit-btn {
+        display: inline-block;
+        position: relative;
+        height: 40px;
+        min-width: 40px;
+        text-align: center;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 14px;
+        font-family: $base-font-family;
+        font-weight: 700;
+        padding: 8px;
+        border-radius: 4px;
+        background-color: #07c;
+        cursor: pointer;
+        box-sizing: border-box;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-font-smoothing: antialiased;
+        flex: 0 0 auto;
+        margin-left: 4px;
+        background-color: $subscription-btn-bgcolor;
+        color: $subscription-btn-color;
+      }
+    }
+  }
+
+  .footer_inner {
+    padding: 32px 0;
+    min-height: 100%;
+    box-sizing: border-box;
+    background: $footer-inner-bg-color;
+    position: relative;
+
+    .footer-inner-box-wrap {
+      left: calc(50vw - 50%);
+      left: calc(var(inherit, calc(100vw - 100%)) / 2);
+
+      .footer-inner-box {
+        max-width: 1090px;
+        margin: 0 auto;
+        box-sizing: border-box;
+
+        .styles_sitemapBlock {
+          box-sizing: border-box;
+          margin: 0 -14px;
+          font-family: $base-font-family;
+          font-style: normal;
+          color: $sitemap-item-color;
+
+          .styles_itemList {
+            display: inline-block;
+            width: 25%;
+            vertical-align: top;
+            padding: 0 14px;
+            box-sizing: border-box;
+
+            .styles_title__15u7c {
+              margin-bottom: 8px;
+              font-weight: 700;
+              font-size: 15px;
+              line-height: 22px;
+            }
+
+            .styles_sitemapItem__3Lllj {
+              margin-top: 6px;
+
+              .styles_sitemapItemLink__28I9k {
+                display: inline-block;
+                max-width: 100%;
+                vertical-align: top;
+                text-decoration: none;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                color: $sitemap-item-color;
+
+                &:hover {
+                  color: $sitemap-item-color-hover;
+                }
+              }
+            }
+          }
+        }
+
+        .contacts-block {
+          margin-top: 32px;
+          box-sizing: border-box;
+          border-top: 1px solid $contacts-block-border-color;
+          padding-top: 12px;
+          text-align: center;
+
+          a:hover {
+            color: $contact-block-item-color-hover !important;
+          }
+
+          .contacts-block-inner {
+            margin: 0 auto;
+            max-width: 950px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            white-space: nowrap;
+
+            .a1 {
+              background-image: url(../../assets/icons/a1.svg);
+            }
+
+            .life {
+              background-image: url(../../assets/icons/life.svg);
+            }
+
+            .home {
+              background-image: url(../../assets/icons/home.svg);
+            }
+
+            .viber {
+              background-image: url(../../assets/icons/viber.svg);
+            }
+
+            .telegram {
+              background-image: url(../../assets/icons/telegram.svg);
+            }
+
+            .email {
+              background-image: url(../../assets/icons/email.f751aaaa.svg);
+
+              &:hover {
+                background-image: url(../../assets/icons/mailbox2.svg);
+              }
+            }
+
+            .feedback {
+              display: flex;
+              align-items: center;
+              padding-left: 0;
+
+              svg {
+                display: block;
+                padding-right: 2px;
+              }
+
+              &:hover {
+                color: $contact-block-item-color-hover !important;
+                cursor: pointer;
+              }
+            }
+
+            .contacts-block-item {
+              text-decoration: none;
+              font-family: Arial, sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              color: $contact-block-item-color;
+              font-size: 14px;
+              line-height: 24px;
+              padding-left: 26px;
+              border: 0;
+              background-repeat: no-repeat;
+              background-position: 0;
+              background-color: transparent;
+            }
+          }
+        }
+
+        .styles_socialnetworksWrapper__3zCRz {
+          margin-top: 12px;
+          box-sizing: border-box;
+          border-top: 1px solid $contacts-block-border-color;
+          padding-top: 20px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+
+          .styles_icon__19Zkj {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px $default-shadow-color;
+            margin: 0 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: $social-icon-bg-color;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+              box-shadow: none;
+
+              svg path {
+                fill: $social-icon-active-color;
+                -webkit-filter: none;
+                filter: none;
+              }
+            }
+
+            .styles_svg__2H3-f {
+              display: flex;
+              justify-content: center;
+            }
+
+            svg path {
+              -webkit-filter: $social-icon-filter;
+              filter: $social-icon-filter;
+            }
+          }
+
+          .styles_vk__2Ytbl:hover {
+            background-color: $vk-active-bg-color;
+          }
+
+          .styles_fb__3eTaZ:hover {
+            background-color: $fb-active-bg-color;
+          }
+
+          .styles_instagram__87akS:hover {
+            background-image: $instagram-active-bg-color;
+            background-color: $instagram-active-bg-color;
+          }
+
+          .styles_youtube__2uYKz:hover {
+            background-color: $youtube-active-bg-color;
+          }
+
+          .styles_yandexZen__ShQ6e {
+            .zen_yanda {
+              fill: $yandexzen-color-2;
+              -webkit-filter: none;
+              filter: none;
+            }
+
+            &:hover {
+              background-color: $yandexzen-active-bg-color;
+              box-shadow: none;
+
+              svg path:first-child {
+                fill: $yandexzen-active-color-1;
+              }
+            }
+          }
+        }
+
+        .styles_legalInformationBlock__3zwAq {
+          font-size: 10px;
+          line-height: 16px;
+          max-width: 904px;
+          margin: 0 auto;
+          box-sizing: border-box;
+          padding-top: 24px;
+          -webkit-text-size-adjust: none;
+          -moz-text-size-adjust: none;
+          text-size-adjust: none;
+          font-family: $base-font-family;
+          text-align: center;
+          color: $legal-information-block-color;
+
+          .styles_paragraph__2Qt27 {
+            padding: 0 0 10px;
+          }
+        }
+
+        .styles_paymentSystems__1R-BV {
+          margin: 24px 0 8px;
+
+          .styles_list__3f_r6 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li {
+              margin: 0 8px;
+              -webkit-filter: $payment-systems-filter;
+              filter: $payment-systems-filter;
+            }
+
+            svg {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,15 +3,14 @@
     <div class="b-content">
 
       <ul class="b-breadcrumbs">
-        <li class="breadcrumbs__item cr-breadcrumbs__first"><a href="https://www.21vek.by/" class="breadcrumbs__link"
-            title="На главную">Главная</a></li>
-        <li class="breadcrumbs__item"><a href="https://www.21vek.by/garden/" class="breadcrumbs__link"
-            title="К разделу «Дом и сад»">Дом и сад</a></li>
-        <li class="breadcrumbs__item"><a href="https://www.21vek.by/picnic_items/" class="breadcrumbs__link"
-            title="К разделу «Отдых и пикник»">Отдых и пикник</a></li>
+        <li class="breadcrumbs__item cr-breadcrumbs__first">
+          <a href="https://www.21vek.by/" class="breadcrumbs__link" title="На главную">Главная</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <a href="https://www.21vek.by/garden/" class="breadcrumbs__link" title="К разделу «Дом и сад»">{{categotyId | async }}</a>
+        </li>
       </ul>
       <h1 class="content__header cr-category_header">{{subCategoryId}}</h1>
-
 
       <div class="b-tools  g-box_lseparator">
         <ul class="tools-sort">
@@ -111,7 +110,8 @@
                   <span class="reviews-rate-catalog cr-reviews-rate"></span>
                 </span>
 
-                <form class="j-to_basket" method="post" action="/to_basket/?item=6255926&amp;special=0&amp;price=209.00">
+                <form class="j-to_basket" method="post"
+                  action="/to_basket/?item=6255926&amp;special=0&amp;price=209.00">
                   <button class="g-button g-buybtn result__buybtn cr-buybtn__in j-ga_track">В корзину</button>
                 </form>
 
@@ -186,9 +186,7 @@
 
   </div>
 </div>
-<p>
-  {{categotyId | async }}
-</p>
+
 
 <!-- <ul>
   <li *ngFor="let good of goods | async" class="styles_promoItem">

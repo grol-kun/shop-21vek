@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  subscribed = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  subscribe() {
+    this.subscribed = true;
+  }
 }
