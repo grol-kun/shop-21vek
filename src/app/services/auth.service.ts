@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { baseUrl, TokenName } from '../url';
 import { User } from '../interfaces/user';
+import { UserInfoService } from './user-info.service';
 interface loginInfo { login: string; password: string }
 interface Registerinfo extends loginInfo {
   firstName: string,
@@ -12,14 +13,26 @@ interface Registerinfo extends loginInfo {
   providedIn: 'root',
 })
 export class AuthService {
-  userInfo: Subject<User | null> = new Subject();
+  public userInfo: Subject<User | null> = new Subject();
   //userInfo: BehaviorSubject<User | null> = new BehaviorSubject(null);
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private userInfoService: UserInfoService
+    ) { }
   getuserInfo(): void {
-    this.httpClient.get<User>(`${baseUrl}/users/userInfo`).subscribe(data => {
-      this.userInfo.next(data)
-      console.log(data)
-    })
+    this.httpClient.get<User>(`${baseUrl}/users/userInfo`)
+      .subscribe({
+        next: (data) => {
+          this.userInfo.next(data);
+          console.log(data);
+/*           UserInfoService.userInfo = data;
+          console.log(UserInfoService.userInfo); */
+          this.userInfoService.setInfo(data);
+        },
+        error: (err) => console.error(err),
+        complete: () => console.info('getuserInfo complete')
+      })
+
   }
   login(userData: loginInfo): Observable<{ token: string }> {
     return this.httpClient.post<{ token: string }>(`${baseUrl}/users/login`, userData);
@@ -29,17 +42,17 @@ export class AuthService {
   }
   setToken(token: string) {
     if (token) {
-      localStorage.setItem(TokenName, token)
+      localStorage.setItem(TokenName, token);
     }
   }
   removeToken() {
-    localStorage.removeItem(TokenName)
+    localStorage.removeItem(TokenName);
   }
   getToken() {
-    return localStorage.getItem(TokenName)
+    return localStorage.getItem(TokenName);
   }
   hasToken() {
-    const token = localStorage.getItem(TokenName)
-    return !!token
+    const token = localStorage.getItem(TokenName);
+    return !!token;
   }
 }

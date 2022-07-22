@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { TokenInterseptorService } from './token-interseptor.service';
 import { CategoryServise } from './services/category.service'
 //
 import { SubcategoryComponent } from './/features/subcategory/subcategory.component'
+import { OrderComponent } from './features/order/order.component';
 
 
 
@@ -47,7 +49,8 @@ import { SubcategoryComponent } from './/features/subcategory/subcategory.compon
     NavBarComponent,
     SearchComponent,
     AccountMenuComponent,
-    SubcategoryComponent
+    SubcategoryComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { SubcategoryComponent } from './/features/subcategory/subcategory.compon
     MatMenuModule,
     MatDialogModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatBadgeModule
   ],
   providers: [
     HttpService,

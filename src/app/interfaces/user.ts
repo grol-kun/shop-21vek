@@ -1,26 +1,28 @@
 export interface Details {
-  "name": string,
-  "address": string,
-  "phone": string,
-  "timeToDeliver": string,
-  "comment": string
+  name: string,
+  address: string,
+  phone: string,
+  timeToDeliver: string,
+  comment: string
 }
 
 export interface User {
-  "firstName": string,
-  "lastName": string,
-  "cart": string[],
-  "favorites": string[],
-  "orders": [
+  firstName: string,
+  lastName: string,
+  cart: string[],
+  favorites: string[],
+  orders?: [
     {
-      "items": [
+      items: [
         {
-          "id": string,
-          "amount": number
+          id: string,
+          amount: number
         }
       ],
-      "details": Details,
-      "id": string
+      details: Details,
+      id: string
     }
   ]
 }
+
+

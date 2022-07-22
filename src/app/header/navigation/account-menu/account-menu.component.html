@@ -32,7 +32,7 @@
               <div class="styles_list styles_enterDone">
                 <div class="userToolsAuth">
                   <div class="userToolsImage" routerLink="/profile/info"></div>
-                  <button type="button" class="userToolsBtn" title="Вход" (click)="openDialog()">
+                  <button *ngIf="!authStatus" type="button" class="userToolsBtn" title="Вход" (click)="openDialog()">
                     <span>Войти</span>
                   </button>
                 </div>

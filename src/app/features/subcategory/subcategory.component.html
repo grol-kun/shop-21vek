@@ -110,9 +110,8 @@
                   <span class="reviews-rate-catalog cr-reviews-rate"></span>
                 </span>
 
-                <form class="j-to_basket" method="post"
-                  action="/to_basket/?item=6255926&amp;special=0&amp;price=209.00">
-                  <button class="g-button g-buybtn result__buybtn cr-buybtn__in j-ga_track">В корзину</button>
+                <form class="j-to_basket">
+                  <button class="g-button g-buybtn result__buybtn cr-buybtn__in j-ga_track" type="button" (click)="addToCart(good.id)">В корзину</button>
                 </form>
 
               </div>

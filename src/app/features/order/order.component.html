@@ -1,1 +1,591 @@
-<h1>Вернуться к покупкам</h1>
+<div class="l-content-wrapper">
+  <div class="l-content l-base cr-content__short">
+
+    <div class="react-basket-tabs">
+      <div class="BasketTabsScreen_tabs__va7cI">
+        <div role="presentation" class="BasketTabsScreen_tab__2KN2q BasketTabsScreen_active__1obix">
+          <span [matBadge]="cartCount" matBadgeSize="small" matBadgePosition="after" matBadgeColor="accent"
+            class="BasketTabsScreen_title__2NSA4">Корзина
+          </span>
+        </div>
+        <div role="presentation" class="BasketTabsScreen_tab__2KN2q"></div>
+      </div>
+    </div>
+
+    <div *ngIf="cartCount==0" class="j-empty-basket-container">
+      <div class="b-empty-basket-container">
+        Ваша корзина пуста<br>
+        <a class="b-go_back" [routerLink]="['']">← Вернуться к покупкам</a>
+      </div>
+    </div>
+
+    <div class="j-basket-container">
+
+      <form class="g-form j-ga_track" data-ga_action="load" data-ga_on="click" data-ga_label="Step1"
+        data-ga_category="Ordering" method="POST" action="/order/?item=save">
+        <div class="b-order">
+          <table class="g-table b-basket">
+            <thead>
+              <tr>
+                <th class="g-table-cell basket__header cr-basket__img"></th>
+                <th class="g-table-cell basket__header cr-basket__name">Товар</th>
+                <th class="g-table-cell basket__header cr-basket__name">Дополнительные услуги</th>
+                <th class="g-table-cell basket__header cr-basket__count">Количество</th>
+                <th class="g-table-cell basket__header cr-basket__delivery">Доставка</th>
+                <th class="g-table-cell basket__header cr-basket__cost">Стоимость</th>
+              </tr>
+            </thead>
+
+            <!-- Товары -->
+            <tbody class="basket__list">
+
+
+              <tr *ngFor="let good of cartList | async" class="j-basket-item">
+
+
+                <h1>{{good.name}}</h1>
+
+                <td class="g-table-cell basket__item cr-basket__img">
+                  <img src="https://cdn21vek.by/img/galleries/6318/129/preview/crystal202021_arena_611a7c787626a.jpeg"
+                    alt="Велосипед Arena Crystal 2.0 2021 (26, красный) - " class="foreign_goods__img">
+                  <a href="/from_basket/?item=6318129&amp;special=0"
+                    class="g-pseudo_href cr-from_basket j-from_basket">удалить</a>
+                </td>
+
+                <td class="g-table-cell basket__item cr-basket__name">
+                  <a href="https://www.21vek.by/bikes/crystal202021_arena.html">Велосипед Arena Crystal 2.0 2021 (26,
+                    красный)</a>
+                  <span class="g-code">код 6.318.129</span>
+                  <span class="item-tools__li cr-item-tools-putaside">
+                    <a href="/aside/?item=6318129" class="putaside__link j-putaside" rel="nofollow">
+                      <span class=" g-pseudo_href">Добавить в избранное</span>
+                    </a>
+                  </span>
+                </td>
+                <td class="g-table-cell basket__item cr-basket__services b-basket-services">
+                  <span class="basket-services__header">Страхование</span>
+                  <div class="basket-services__item">
+                    <label class="g-form__checklabel g-form__checked">
+                      <input type="checkbox" class="g-form__check j-basket__servicecheck"
+                        name="data[items][8874388_2413][count]" value="1" data-price="39.9" data-type="procent"
+                        data-base-price="10.00" data-uniq-key="8874388_2413">
+                      <a href="/services/insurance.html#addservices__35">Страхование товара</a>
+                      — <span class="j-basket__serviceprice">39,90&nbsp;р.</span>
+                    </label>
+
+                  </div>
+
+                </td>
+                <td class="g-table-cell basket__item cr-basket__count">
+                  <div class="basket-counter">
+                    <span class="basket-counter__act cr-basket-counter__minus j-basket__minus"></span>
+                    <div class="g-form__inputwrap ">
+                      <input type="text" class="g-form__text j-basket__counter" name="data[items][8874388][count]"
+                        value="1" autocomplete="off" maxlength="6" data-multiple="1">
+                    </div>
+                    <span class="basket-counter__act cr-basket-counter__plus j-basket__plus"></span>
+                  </div>
+                </td>
+                <td class="g-table-cell basket__item cr-basket__delivery">
+                  <div class="g-delivery">
+                    <div class="delivery-courier">Курьером: сегодня</div>
+                    <div class="delivery-self">Самовывоз: сегодня</div>
+                  </div>
+                  <br>
+                </td>
+                <td class="g-table-cell basket__item cr-basket__cost cr-basket__show_reason"><span
+                    class="promo__oldprice"></span>
+                  <div> <span class=" g-price basket__price cr-price__in">
+                      <span class="j-basket__cost">399,00&nbsp;р.</span>
+                    </span>
+                  </div>
+
+                </td>
+              </tr>
+            </tbody>
+
+
+
+            <!-- Цена + Кнопка заказа -->
+            <tfoot class="basket_footer">
+
+              <tr>
+                <td class="g-table-cell basket__foot cr-basket__cost" colspan="7">
+                  <span>
+                    Общая стоимость:&nbsp;
+                    <span class="g-price basket_total__price cr-price__in">
+                      <span>399,00&nbsp;р.</span>
+                    </span>
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="g-table-cell basket__foot" colspan="3">
+                  <a class="b-go_back" href="/bikes/">← Вернуться к покупкам</a>
+                </td>
+                <td class="g-table-cell basket__foot" colspan="4">
+                  <div class="b-order-tools">
+                    <button class="g-button cr-button__order j-ga_track" data-ga_action="click" data-ga_on="click"
+                      data-ga_label="Goto_Step2" data-ga_category="Ordering" type="button">
+                      <span class="g-button__text">Оформить заказ</span>
+                    </button>
+                    <a class="g-pseudo_href b-order-tools__login authModalToggler" data-rel="order" title="Войти"
+                      href="/users/login/">Войти</a>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+
+
+          </table>
+
+        </div>
+        <div class="b-order-form clearfix" style="display: none">
+
+          <div class="b-order cr-order__private">
+            <h3 class="order__header">Личные данные</h3>
+            <fieldset class="g-form__controls g-form__set b-order-private">
+              <div class="b-user-auth">
+                <label class="g-form__label">Имя Фамилия:
+                  <div class="g-form__inputwrap"><input value="" type="text" name="data[private][name]"
+                      class="g-form__text j-input-user-name"></div>
+                </label>
+                <label class="g-form__label j-check cr-check-required cr-state-error">
+                  E-mail:
+                  <div class="g-form__inputwrap"><input value="" type="email" name="data[private][email]"
+                      class="g-form__text cr-source_tooltip-right j-input-user-email j-check-email" autocomplete="off">
+                  </div>
+                  <span class="g-form__message">Это поле обязательно для заполнения</span>
+                </label>
+                <div class="b-user-auth__password" style="display: none;">
+                  <label class="g-form__label cr-check-required j-user-password"> Пароль:
+                    <div class="g-form__inputwrap"><input value="" type="password" name="data[private][password]"
+                        class="g-form__text j-input-user-password"></div>
+                  </label>
+                  <div class="g-form__messages"></div>
+                  <div class="b-remind-password">
+                    <a href="#" class="j-remind-password">
+                      Напомнить пароль
+                      <span class="b-remind-password__loader j-remind-password__loader"></span>
+                    </a>
+                  </div>
+                  <button class="g-button autotest-order-login" type="button"><span
+                      class="g-button__text">Войти</span></button>
+                  <div class="j-order_cost login_pd">
+                    Нажимая "Войти", вы соглашаетесь с
+                    <a href="/services/personal_data.html" target="_blank">политикой обработки персональных данных</a>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="b-order cr-order__delivery">
+            <h3 class="order__header">Доставка</h3>
+            <!--ВЫБОР ГОРОДА-->
+            <fieldset class="g-form__controls g-form__set b-order-delivery">
+              <div>
+                <label class="g-form__label j-check cr-autocomplete-simple" data-mask="г\.\ Минск"
+                  data-err_message="Начните вводить название населенного пункта и выберите вариант из предложенного списка">
+                  Город/населенный пункт:
+                  <div class="g-form__inputwrap">
+                    <input type="text" name="data[city]" class="g-form__text ui-autocomplete-input" value="г. Минск"
+                      data-distance="0" data-city="г. Минск"
+                      data-missing-items-text="Населенный пункт не найден. Для расчета доставки введите ближайший к вам город. Свой населенный пункт напишите в адресе доставки."
+                      autocomplete="nope" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+                  </div>
+                  <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox"
+                    aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;">
+                  </ul>
+                </label>
+              </div>
+            </fieldset>
+
+            <!--СПОСОБ ДОСТАВКИ-->
+            <fieldset class="g-form__controls g-form__set j-check cr-check-radiorequired b-order-delivery"
+              id="j-delivery-type">
+              <div class=" g-form__groupwrap">
+                <label class="g-form__checklabel g-form__radio g-form__checked" id="delivery_courier">
+                  <input type="radio" class="g-form__check j-delivery_type" name="data[delivery_type]" value="courier"
+                    data-offer_spot_type="21vek" checked="checked">курьером до клиента&nbsp;—&nbsp;<span><span
+                      id="j-courier_cost">0&nbsp;р.</span></span>
+                </label>
+                <label class="g-form__checklabel g-form__radio g-form__disabled" id="delivery_self">
+                  <input type="radio" class="g-form__check j-delivery_type" data-offer_spot_type="21vek"
+                    name="data[delivery_type]" value="self">
+                  <span class="g-pseudo_href j-callpopup cr-popup-big j-map" id="map_17030_0"
+                    title="Пункты выдачи заказов, г. Минск" item="">самовывоз в г. Минск</span>
+                  — <span><span id="j-self_cost_free">бесплатно</span></span>
+                  <span class="disable-reason">недоступен для товаров в корзине <span
+                      class="unclickable b-source_tooltip j-tooltip-byhover cr-source_tooltip-right"
+                      data-title="В корзине есть товары, вес/габариты которых превышают допустимые для доставки в ПВЗ."></span></span>
+                  <span id="free-delivery-notification" class="g-form__disabled" style="display: none;">бесплатно при
+                    сумме заказа от 90 р.</span>
+                </label>
+
+
+                <label class="g-form__checklabel" style="margin-top: 20px; margin-left: 20px;">
+                  <input type="checkbox" class="g-form__check j-contactless" name="data[contactless]" id="contactless">
+                  <span>Хочу <a href="/company/news/4957.html">бесконтактную доставку</a></span>
+                  <span class="b-source_tooltip j-tooltip-byhover cr-source_tooltip-right"
+                    data-title="Только для доставки курьером и онлайн оплаты"></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="g-form__controls g-form__set b-order-delivery" id="j-delivery-info">
+              <div id="j-delivery-addresses">
+                <div class="b-order-address j-address" id="j-addr-widget">
+                  <div class="g-form__controls g-form__set">
+                    <div class="g-form__set-label cr-check-required j-dynamic j-check"> Адрес доставки, новый</div>
+                    <div class="g-form__groupwrap"></div>
+                  </div>
+                  <div class="g-form__label j-check cr-check-required" id="j-addr">
+                    <div class="g-form__inputwrap">
+                      <input type="text" name="data[addr]"
+                        class="g-form__text j-address-input ui-autocomplete-input ui-autocomplete-loading j-new-address"
+                        maxlength="255" placeholder="Улица, дом" data-city_id="17030" autocomplete="nope" role="textbox"
+                        aria-autocomplete="list" aria-haspopup="true">
+                      <input type="hidden" value="0" name="data[address_id]" class="j-address_id-input">
+                      <input type="hidden" value="" name="data[x_coordinate]" class="j-address_x_coordinate-input">
+                      <input type="hidden" value="" name="data[y_coordinate]" class="j-address_y_coordinate-input">
+                    </div>
+                    <ul
+                      class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all ui-autocomplete-simple addressSelectorMenu"
+                      role="listbox" aria-activedescendant="ui-active-menuitem"
+                      style="z-index: 1; top: -4.02498px; left: 7.125px; display: none; width: 298px;">
+                      <li aria-label="add-address-placeholder" class="ui-menu-item" role="menuitem"><a
+                          class="ui-corner-all" tabindex="-1">+Добавить новый адрес</a></li>
+                    </ul><span class="g-form__message" style="display: none;"></span>
+                  </div>
+                  <div id="j-addr-parts">
+                    <div class="g-form__label g-form__label--third">
+                      <div class="g-form__inputwrap">
+                        <input type="text" value="" class="g-form__text j-entrance-input" name="data[entrance]"
+                          maxlength="15" placeholder="Подъезд">
+                      </div>
+                    </div>
+                    <div class="g-form__label g-form__label--third">
+                      <div class="g-form__inputwrap">
+                        <input type="text" value="" class="g-form__text j-floor-input" name="data[floor]" maxlength="15"
+                          placeholder="Этаж">
+                      </div>
+                    </div>
+                    <div class="g-form__label g-form__label--third">
+                      <div class="g-form__inputwrap">
+                        <input type="text" value="" class="g-form__text j-flat-input" name="data[flat]" maxlength="15"
+                          placeholder="Квартира">
+                      </div>
+                    </div>
+                    <div class="g-form__address-message j-address-message" style="display: none;">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12Z"
+                          fill="#E62E6B"></path>
+                        <path d="M5.09998 3V6H6.89998V3H5.09998Z" fill="white"></path>
+                        <path d="M5.09998 7V9H6.89998V7H5.09998Z" fill="white"></path>
+                      </svg>
+                      <span>Пожалуйста, выбирайте улицу и дом из списка для выбора времени доставки заказа</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="b-order-offer_spots cr-check-radiorequired" id="j-offer_spots" style="display: none;">
+                <!--пункты самовывоза-->
+                <div class="g-form__controls g-form__set">
+                  <div class="g-form__set-label">Пункт выдачи заказа:</div>
+                </div>
+                <div id="j-offer_spots-list"></div>
+              </div>
+              <div class="j-delivery-intervals">
+                <div class="g-form__set-label">Время доставки:
+                  <span class="b-source_tooltip j-tooltip-byhover cr-source_tooltip-right"
+                    data-title="При оплате заказа частями или юридическим лицом время доставки согласовывается специалистом"></span>
+                </div>
+                <div class="g-form-select-group">
+                  <div
+                    class="g-form__custom-select g-form__inputwrap j-address-custom-select j-delivery-intervals-date-desktop disabled">
+                    <div class="arrow-down"></div>
+                    <div class="custom-options" style="display: none"></div>
+                  </div>
+
+                  <div type="select"
+                    class="g-form__custom-select g-form__inputwrap j-address-custom-select j-delivery-intervals-time-desktop j-check cr-check-selectrequired disabled">
+                    <div class="arrow-down"></div>
+                    <div class="custom-options" style="display: none"></div>
+                  </div>
+                </div>
+              </div>
+              <label class="g-form__label j-check cr-check-required b-phone-widget" id="j-phone">
+                Телефон:
+
+                <div class="phone-widget__inner">
+                  <div class="phone-widget__code"><span class="phone-widget__holder"><span
+                        class="g-ico-flag flag-by"></span><span class="phone-widget__holder-text">Беларусь
+                        (+375)</span></span>
+                    <ul class="phone-widget__codes">
+                      <li class="phone-widget__code-item" data-value="by"><span class="g-ico-flag flag-by"></span><span
+                          class="phone-widget__code-text">Беларусь (+375)</span></li>
+                      <li class="phone-widget__code-item" data-value="ru"><span class="g-ico-flag flag-ru"></span><span
+                          class="phone-widget__code-text">Россия (+7)</span></li>
+                    </ul>
+                  </div>
+                  <div class="g-form__inputwrap phone-widget__phone"><input type="tel" autocomplete="nope"
+                      name="data[phone]" class="g-form__text" value="" placeholder="+375 (29) 0000000" maxlength="17">
+                  </div>
+                </div>
+              </label>
+
+
+              <label class="g-form__label">
+                Комментарий:
+                <div class="g-form__inputwrap">
+                  <textarea class="g-form__textarea j-order-comment" name="data[comment]"
+                    placeholder="Введите номер и серию сертификата, если таковой имеется."></textarea>
+                </div>
+              </label>
+              <input type="text" tabindex="-1" name="data[secret_key]"
+                style="width:0px; height:0px; position: absolute; left:9999px; top:9999px;">
+            </fieldset>
+          </div>
+
+          <div class="b-order cr-order__payment">
+            <div class="j-order-bonuses-block b-order-bonuses">
+              <h3 class="order__header">Бонусная программа<span class="header__caret"></span></h3>
+              <div class="g-form__controls b-order-td">
+
+
+                <span>Для использования бонусного счета необходимо авторизоваться</span>
+
+
+
+                <div class="b-card-info">
+                  <div id="j-bonus_payment" class="g-none">
+                    <label class="g-form__checklabel">
+                      <input type="checkbox" class="g-form__check j-payment_type" name="data[pay_with_bonus]" id="bonus"
+                        value="1">
+                      <span>оплатить бонусами</span>
+                    </label>
+                    <div class="order-payment__comment" id="bonus_comment">При оплате покупки бонусами баллы за эту
+                      покупку не начисляются</div>
+                  </div>
+                  <div id="j-card-earning" class="b-card-earning g-none"></div>
+                  <div id="card-selected">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="j-order-payment-block">
+              <h3 class="order__header">Оплата</h3>
+              <fieldset class="g-form__controls b-order-payment j-check cr-check-radiorequired" id="j-payment">
+                <div class="order-payment__forced g-none"></div>
+                <div class="order-payment__usual">
+                  <div class="order__subheader j-payment_group">
+                    <label class="g-form__checklabel g-form__radio j-payment_type g-form__checked">
+                      <input type="hidden" class="g-form__check " checked="checked" autocomplete="off">Оплатить при
+                      получении
+                    </label>
+                  </div>
+                  <div class="order-payment_group g-form__groupwrap ">
+                    <label class="g-form__checklabel g-form__radio g-form__checked">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="usual"
+                        id="usual" checked="checked" autocomplete="off">наличными
+                    </label>
+
+
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]"
+                        value="card_installment" id="card_installment" autocomplete="off">картой рассрочки
+                    </label>
+                    <div class="order-payment__comment " id="card_installment_comment">Принимаются карты: Халва,
+                      Черепаха, Smart карта, Карта FUN, Карта Покупок. При оплате этими картами скидки не действуют.
+                    </div>
+
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="card"
+                        id="card" autocomplete="off">другой банковской картой
+                    </label>
+                    <!--								<div class="order-payment__fix_comment" >в том числе картой «Дело техники»</div>-->
+                    <div class="order-payment__comment " id="card_comment">К оплате принимаются: Visa, Visa Electron,
+                      MasterCard, MasterCard Electronic, Maestro, Белкарт.</div>
+
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="sertificate"
+                        id="sertificate" autocomplete="off">подарочным сертификатом
+                    </label>
+                    <label class="g-form__label order-payment__comment" id="sertificate_comment">Введите сумму,
+                      указанную на сертификате:<div class="g-form__inputwrap"><input type="text"
+                          name="data[sertificate]" placeholder="100,00" value=""
+                          class="g-form__text j-form__number cr-source_tooltip-right" id="j-prepayment" maxlength="10">
+                      </div></label>
+                  </div>
+
+                  <div class="order__subheader j-payment_group">
+                    <label class="g-form__checklabel g-form__radio j-payment_type">
+                      <input type="hidden" id="online" class="g-form__check " autocomplete="off">Оплатить сейчас онлайн
+                    </label>
+
+                    <div class="order-payment__comment " id="online_comment">
+                      При получении заказа назовите код подтверждения, отправленный вам в Viber на смартфоне или по смс.
+                    </div>
+                  </div>
+                  <div class="order-payment_group order-payment_group-online g-form__groupwrap g-none">
+
+                    <label class="g-form__checklabel g-form__radio" id="card_installment_online_label">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]"
+                        value="card_installment_online" id="card_installment_online" autocomplete="off">картой рассрочки
+                    </label>
+                    <div class="order-payment__comment " id="card_installment_online_comment">Принимаются карты: Халва,
+                      Черепаха, Smart карта, Карта FUN, Карта Покупок, Кредитная карта Приорбанка. При оплате этими
+                      картами скидки не действуют.</div>
+
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="webpay"
+                        id="webpay" autocomplete="off">картой Visa, MasterCard или Белкарт
+                    </label>
+                    <div class="order-payment__comment " id="webpay_comment">
+                      Принимаются VISA, MasterCard и Белкарт всех банков. Карты Visa Electron и Maestro (с CVC-кодом) —
+                      по согласованию с выпустившим их банком.
+                    </div>
+
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="erip"
+                        id="erip" autocomplete="off">через систему «Расчет» (ЕРИП)
+                    </label>
+                    <div class="order-payment__comment " id="erip_comment">После подтверждения заказа вы получите его
+                      уникальный номер, который нужно указать при оплате. Оплатить заказ можно через: интернет-банк или
+                      систему электронных денег, кассы банков, банкоматы, инфокиоски и устройства приема наличных денег.
+                    </div>
+
+                  </div>
+                  <div class="order__subheader j-payment_group">
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="credit"
+                        id="credit" autocomplete="off">Оплата частями
+                    </label>
+                    <div class="order-payment__comment " id="credit_comment">Получаете товар сразу, оплачиваете потом
+                      удобными ежемесячными платежами. Оформление онлайн после подтверждения заказа.</div>
+                  </div>
+
+                  <div class="order__subheader j-payment_group">
+                    <label class="g-form__checklabel g-form__radio">
+                      <input type="radio" class="g-form__check j-payment_type" name="data[payment]" value="no_cash"
+                        id="no_cash" autocomplete="off">Для юридических лиц (банковский перевод)
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+          </div>
+
+
+          <div class="b-order-ok" style="display: none">
+            <h3 class="order__header">Юридические реквизиты</h3>
+            <div class="main__block">
+              <div class="block__input">
+                <label class="g-form__label required__label">
+                  УНП
+                  <div class="g-form__inputwrap">
+                    <div class="input text">
+                      <input name="data[org][unp]" label_name="УНП (девять цифр)" data-alias="unp"
+                        id="j-legal-entity_unp" class="j-legal-entity_unp  g-form__text cr-source_tooltip-right"
+                        placeholder="9 цифр" maxlength="9" type="text">
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div class="block__input">
+                <label class="g-form__label required__label">
+                  Юридическое название
+                  <div class="g-form__inputwrap">
+                    <div class="input text">
+                      <input name="data[org][org]" label_name="Юридическое название" data-alias="org"
+                        class="j-legal-entity_legal_name g-form__text" maxlength="256" type="text">
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div class="block__input">
+                <label class="g-form__label required__label">
+                  Юридический адрес
+                  <div class="g-form__inputwrap">
+                    <div class="input text">
+                      <input name="data[org][address]" label_name="Юридический адрес" data-alias="address"
+                        class="j-legal-entity_legal_address g-form__text" maxlength="256" type="text">
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div class="block__input">
+                <label class="g-form__label required__label">
+                  Расчетный счет IBAN
+                  <div class="g-form__inputwrap">
+                    <div class="input text">
+                      <input name="data[org][rs]" label_name="Расчетный счет, IBAN" data-alias="rs"
+                        id="j-legal-entity_acc" placeholder="28 символов" class="j-legal-entity_acc g-form__text"
+                        maxlength="28" type="text">
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div class="block__input" id="j-legal-entity-bank-div">
+                <label class="g-form__label required__label">
+                  Банк
+                  <div class="g-form__inputwrap">
+                    <div class="input text">
+                      <input name="data[org][bank]" label_name="Банк" id="j-legal-entity_bank" data-alias="bank"
+                        class="j-legal-entity_bank g-form__text" maxlength="256" type="text">
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div class="block__input">
+                <label class="g-form__label required__label">
+                  БИК
+                  <div class="g-form__inputwrap">
+                    <div class="input text">
+                      <input name="data[org][bank_code]" label_name="БИК" data-alias="bank_code"
+                        id="j-legal-entity_rcbic" class="j-legal-entity_rcbic g-form__text" type="text"
+                        placeholder="8-11 символов" maxlength="11">
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <label class="j-legal-entity_annual_contract g-form__label">
+                <input type="hidden" name="data[org][reusable_contract]" id="org[reusable_contract]_" value="0"><input
+                  type="checkbox" name="data[org][reusable_contract]" checked="checked" value="1"
+                  id="org[reusable_contract]"> Хочу заключить договор на поставку товара
+              </label>
+            </div>
+          </div>
+          <fieldset class="g-form__tools g-form__set b-order-tools">
+            <span class="g-form__totalmessage cr-check-required">Поля, обязательные для заполнения</span>
+            <div id="j-order_cost">
+              <div>Стоимость заказа с доставкой: <span class="g-price basket_total__price">0</span><span
+                  class="g-price__unit basket_total__priceunit">р.</span></div>
+              <div class="order_total">К оплате: <span class="g-price">0</span><span
+                  class="g-price__unit basket_total__priceunit">р.</span></div>
+            </div>
+            <input type="hidden" name="data[form-step]" value="second">
+            <input type="hidden" name="data[datetime]" value="2022-07-22T13:00:15+03:00">
+            <input type="hidden" name="data[basket_id]" value="419264530">
+            <button id="j-basket__confirm" class="g-button j-submit j-ga_track" data-ga_action="click"
+              data-ga_on="click" data-ga_label="Goto_Step3" data-ga_category="Ordering" type="submit"><span
+                class="g-button__text">Подтвердить заказ&nbsp;<span class="rarr">→</span></span></button>
+            <br>
+          </fieldset>
+          <div class="j-order_cost j-order-pd">
+            &nbsp;Нажимая "Подтвердить заказ", вы соглашаетесь с
+            <a class="j-order-a-ref" href="/services/personal_data.html" target="_blank">политикой обработки
+              персональных данных</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+
+</div>

@@ -42,11 +42,9 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.subscription1$) {
-      console.log(this.subscription1$);
       this.subscription1$.unsubscribe();
     }
     if (this.subscription2$) {
-      console.log(this.subscription2$);
       this.subscription2$.unsubscribe();
     }
   }
